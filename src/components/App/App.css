@@ -1,0 +1,8 @@
+.home {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+}
+
+.homeContainer {
+    flex: 6;
+}
