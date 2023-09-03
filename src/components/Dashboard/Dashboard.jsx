@@ -23,29 +23,29 @@ function Dashboard({ polizas, clientesPersonas, polizasVencer, siniestrosAuto, s
                      link="Ver Listado de clientes"
                      isMoney="#"
                      counter={clientesPersonas.meta.total}
-                     icon= {<GroupIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "#3FA8DF"}} />}
-                     icon2={<StoreIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "#3FA8DF"}} />}
+                     icon= {<GroupIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "dfe9f5"}} />}
+                     icon2={<StoreIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "dfe9f5"}} />}
                       />
                     <Widget 
                      title="PÓLIZAS"
                      link="Ver todas las pólizas"
                      isMoney="#"
                      counter={polizas.meta.total}
-                     icon={<DescriptionIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "#3FA8DF"}} />}
+                     icon={<DescriptionIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "dfe9f5"}} />}
                       />
                     <Widget 
                      title="SINIESTROS DENUNCIADOS"
                      link={<Link to={'/siniestros_todos_list'}>Ver todos los siniestros</Link>}
                      isMoney="#"
                      counter={siniestrosAuto.meta.total + siniestrosHogar.meta.total}
-                     icon={<NoteAltIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "#3FA8DF"}} />}
+                     icon={<NoteAltIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "dfe9f5"}} />}
                       />
                     <Widget
                      title="PÓLIZAS A VENCER"
                      link={<Link to={"/polizas_a_vencer"}>Ver detalle (Próximos 10 días)</Link>}
                      isMoney="#"
                      counter={polizasVencer}
-                     icon={<AssignmentLateIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "rgba(255, 0, 0, 0.2)"}} />}
+                     icon={<AssignmentLateIcon className="iconWidget" style={{color: "ff0000", backgroundColor: "dfe9f5"}} />}
                       />
                 </div>
                 <div className="charts">

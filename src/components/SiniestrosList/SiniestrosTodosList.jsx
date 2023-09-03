@@ -1,4 +1,5 @@
 import React from 'react'
+import RowTable from './RowTable'
 
 function SiniestrosTodosList({ siniestrosAuto, siniestrosHogar }) {
 
@@ -28,36 +29,55 @@ function SiniestrosTodosList({ siniestrosAuto, siniestrosHogar }) {
                   <strong>Cliente</strong>
                 </td>
                 <td>
-                  <strong>Póliza</strong>
+                  <strong>Póliza N°</strong>
                 </td>
                 <td>
                   <strong>Consecuencia</strong>
                 </td>
                 <td>
-                  <strong>Fecha de la Denuncia</strong>
+                  <strong>Fecha y hora de la Denuncia</strong>
                 </td>
               </tr>
             </thead>
-            {/* <tbody>
+            <tbody>
               {
-
-                clientesPersona 
-                ? clientesPersona.map((cliente, index) => {
+                siniestrosAuto.data 
+                ? siniestrosAuto.data.map((siniestro, index) => {
                   return (
                     <RowTable
-                      nombre={cliente.nombre}
-                      apellido={cliente.apellido}
-                      dni={cliente.dni}
-                      email={cliente.email}
-                      direccion={cliente.calle + " " + cliente.altura + " " + cliente.piso + " " + cliente.departamento + ", " + cliente.localidad + "("+cliente.cp+")"}
-                      telefonos={ cliente.telefono_fijo ? cliente.celular + " / " + cliente.telefono_fijo : cliente.celular}
-                      metodoPago={cliente.metodos_pagos_cliente_persona.nombre_metodo_pago}
-                      key={cliente + index}
+                      fecha={siniestro.fecha_siniestro}
+                      hora={siniestro.hora_siniestro}
+                      tipo_siniestro={"Auto"}
+                      cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_auto.nombre+" "+siniestro.clientes_personas_siniestro_auto.apellido : siniestro.clientes_empresas_siniestro_auto.nombre_empresa}
+                      poliza={siniestro.polizas_siniestro_auto.numero_poliza}
+                      consecuencia={ siniestro.consecuencia}
+                      fecha_denuncia={siniestro.createdAt}
+                      key={siniestro + index}
                     />
                   );
                 }) : <tr></tr>
               }
-            </tbody>   */}
+              {
+                siniestrosHogar.data 
+                ? siniestrosHogar.data.map((siniestro, index) => {
+                  return (
+                    <RowTable
+                      fecha={siniestro.fecha_siniestro}
+                      hora={siniestro.hora_siniestro}
+                      tipo_siniestro={"Hogar"}
+                      cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_hogar.nombre+" "+siniestro.clientes_personas_siniestro_hogar.apellido : siniestro.clientes_empresas_siniestro_hogar.nombre_empresa}
+                      poliza={siniestro.polizas_siniestro_hogar.numero_poliza}
+                      consecuencia={ 
+                        siniestro.incendio_contenido_total === true 
+                        ? siniestro.incendio_contenido_total : "vacio"
+                      }
+                      fecha_denuncia={siniestro.createdAt}
+                      key={siniestro + index}
+                    />
+                  );
+                }) : <tr></tr>
+              }
+            </tbody>  
           </table>
         </div>
     )

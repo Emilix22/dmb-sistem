@@ -2,7 +2,7 @@
     flex: 1;
     border-right: solid 0.5px rgb(211, 211, 211);
     min-height: 100vh;
-    background-color: white;
+    background-color: rgba(243, 247, 251, 0.8);
 }
 
 .top {
@@ -43,7 +43,7 @@ li:hover {
     background-color: #ece8ff;
 }
 
-li a {
+a {
     text-decoration: none;
 }
 

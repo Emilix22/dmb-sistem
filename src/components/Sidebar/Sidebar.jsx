@@ -19,6 +19,7 @@ import logo from '../../assets/dmbLogo.svg'
 
 
 function Sidebar() {
+
     return (
         <div className="sidebar">
             <div className="top">
@@ -27,61 +28,76 @@ function Sidebar() {
             <div className="center">
                 <ul>
                     <p className="title">PRINCIPAL</p>
-                    <li>
-                        <Link to="/dashboard">
+
+                    <Link to="/dashboard">
+                        <li>
                             <DashboardIcon className="icon" />
                             <span>Dashboard</span>
-                        </Link>
-                    </li>
+                        </li>
+                    </Link>
+
                     <p className="title">LISTADOS</p>
-                    <li>
-                        <Link to="/clientes_personas_list">
-                            <GroupIcon className="icon" />
-                            <span>Clientes Personas</span>
-                        </Link>
-                    </li>
+
+                    <Link to="/clientes_personas_list">
+                        <li>
+                                <GroupIcon className="icon" />
+                                <span>Clientes Personas</span>
+                        </li>
+                    </Link>
+
                     <li>
                         <StoreIcon className="icon" />
                         <span>Clientes Empresas</span>
                     </li>
+
                     <li>
                         <DescriptionIcon className="icon" />
                         <span>Pólizas</span>
                     </li>
-                    <li>
-                        <Link to={"/siniestros_tipos"}>
-                            <NoteAltIcon className="icon" />
-                            <span>Siniestros Denunciados</span>
-                        </Link>
-                        
-                    </li>
+
+                    <Link to={"/siniestros_tipos"}>
+                        <li>
+                                <NoteAltIcon className="icon" />
+                                <span>Siniestros Denunciados</span>   
+                        </li>
+                    </Link>
+
                     <p className="title">UTILIDADES</p>
+
                     <li>
                         <QueryStatsIcon className="icon" />
                         <span>Estadísticas</span>
                     </li>
+
                     <li>
                         <NotificationsActiveIcon className="icon" />
                         <span>Notificaciones</span>
                     </li>
+
                     <p className="title">SERVICIOS</p>
+
                     <li>
                         <HealthAndSafetyIcon className="icon" />
                         <span>Salud del Sistema</span>
                     </li>
+
                     <li>
                         <AppRegistrationIcon className="icon" />
                         <span>Registros</span>
                     </li>
+
                     <li>
                         <SettingsApplicationsIcon className="icon" />
                         <span>Ajustes</span>
                     </li>
+
                     <p className="title">USUARIO</p>
+
                     <li>
                         <AccountBoxIcon className="icon" />
                         <span>Perfil</span>
                     </li>
+
                     <li>
                         <MeetingRoomIcon className="icon" />
                         <span>Salir</span>

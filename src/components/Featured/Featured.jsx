@@ -14,7 +14,7 @@ function Featured() {
             </div>
             <div className="bottomFeatured">
                 <div className="featuredChart">
-                    <CircularProgressbar value={70} text="70%" strokeWidth={15} />
+                    <CircularProgressbar value={60} text="60%" strokeWidth={15} />
                 </div>
                 <p className="titleDescription">Ventas Totales del día</p>
                 <p className="amountDescription">$25000</p>
