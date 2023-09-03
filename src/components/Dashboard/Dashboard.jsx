@@ -17,6 +17,9 @@ function Dashboard({ polizas, clientesPersonas, polizasVencer, siniestrosAuto, s
 
     return (
         <div className='dashboard'>
+            {/* <div className='btn-excel'>
+            <button className='btn-pdf'>lalalalal</button>
+            </div> */}
             <div className="widgets">
                     <Widget
                      title="CLIENTES"

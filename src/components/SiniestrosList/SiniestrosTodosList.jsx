@@ -17,7 +17,7 @@ function SiniestrosTodosList({ siniestrosAuto, siniestrosHogar }) {
             <thead>
               <tr>
                 <td>
-                  <strong>Fecha</strong>
+                  <strong>Fecha del Siniestro</strong>
                 </td>
                 <td>
                   <strong>Hora</strong>
@@ -35,7 +35,7 @@ function SiniestrosTodosList({ siniestrosAuto, siniestrosHogar }) {
                   <strong>Consecuencia</strong>
                 </td>
                 <td>
-                  <strong>Fecha y hora de la Denuncia</strong>
+                  <strong>Fecha de la Denuncia</strong>
                 </td>
               </tr>
             </thead>
@@ -51,7 +51,7 @@ function SiniestrosTodosList({ siniestrosAuto, siniestrosHogar }) {
                       cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_auto.nombre+" "+siniestro.clientes_personas_siniestro_auto.apellido : siniestro.clientes_empresas_siniestro_auto.nombre_empresa}
                       poliza={siniestro.polizas_siniestro_auto.numero_poliza}
                       consecuencia={ siniestro.consecuencia}
-                      fecha_denuncia={siniestro.createdAt}
+                      fecha_denuncia={siniestro.createdAt.slice(0,10)}
                       key={siniestro + index}
                     />
                   );
@@ -60,6 +60,13 @@ function SiniestrosTodosList({ siniestrosAuto, siniestrosHogar }) {
               {
                 siniestrosHogar.data 
                 ? siniestrosHogar.data.map((siniestro, index) => {
+                  const consecuencias = [];
+                  siniestro.incendio_contenido_total === true 
+                  ? consecuencias.push('incendio contenido total, ') 
+                  : null
+                  siniestro.incendio_contenido_parcial === true 
+                  ? consecuencias.push('incendio contenido parcial, ') 
+                  : null
                   return (
                     <RowTable
                       fecha={siniestro.fecha_siniestro}
@@ -67,11 +74,8 @@ function SiniestrosTodosList({ siniestrosAuto, siniestrosHogar }) {
                       tipo_siniestro={"Hogar"}
                       cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_hogar.nombre+" "+siniestro.clientes_personas_siniestro_hogar.apellido : siniestro.clientes_empresas_siniestro_hogar.nombre_empresa}
                       poliza={siniestro.polizas_siniestro_hogar.numero_poliza}
-                      consecuencia={ 
-                        siniestro.incendio_contenido_total === true 
-                        ? siniestro.incendio_contenido_total : "vacio"
-                      }
-                      fecha_denuncia={siniestro.createdAt}
+                      consecuencia={consecuencias}
+                      fecha_denuncia={siniestro.createdAt.slice(0,10)}
                       key={siniestro + index}
                     />
                   );

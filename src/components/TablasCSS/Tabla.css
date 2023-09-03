@@ -31,14 +31,27 @@
     align-items: center;
     justify-content: right;
     margin: 10px 20px 0px 0px;
+    gap: 10px;
   }
 
-  .btn-excel button {
+  .btn-excel .excel-button {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5px;
     background-color: #016201;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .btn-pdf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #d60000;
     color: whitesmoke;
     border-radius: 5px;
     cursor: pointer;

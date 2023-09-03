@@ -3,10 +3,17 @@ import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
+import PrintIcon from '@mui/icons-material/Print';
+import { useReactToPrint } from 'react-to-print';
 
 function ClientesPersonaList() {
 
     const [clientesPersona, setClientesPersona] = useState();
+    const handlePrint = useReactToPrint({
+      content: () => tablaClientesPersonas.current,
+      documentTitle: 'ClientesPersonas',
+      // onAfterPrint: () => alert('Print success')
+    })
 
     useEffect(() => {
         const loadClients = async () => {
@@ -29,17 +36,19 @@ function ClientesPersonaList() {
               currentTableRef={tablaClientesPersonas.current}
               >
 
-              <button>Excel <SimCardDownloadIcon /></button>
+              <button className='excel-button'>Excel <SimCardDownloadIcon /></button>
             </DownloadTableExcel>
+
+            <button className='btn-pdf' onClick={handlePrint}><PrintIcon /> / PDF <SimCardDownloadIcon /></button>
+
           </div>
-          <div className="listado-tabla">
+          <div className="listado-tabla" ref={tablaClientesPersonas} style={{width: '98%'}}>
           <h3>Listado de Clientes Personas</h3>
           <table
             className="table table-bordered"
             id="dataTable"
             width="100%"
             cellSpacing="0"
-            ref={tablaClientesPersonas}
             >
             <thead>
               <tr>
