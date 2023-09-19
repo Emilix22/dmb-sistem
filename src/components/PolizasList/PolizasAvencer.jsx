@@ -6,7 +6,7 @@ function PolizasAvencer({ polizas }) {
 
   return (
     <div className="listado-tabla">
-      <h3>Listado de Pólizas a Vencer Dentro de los Próximos 10 Días</h3>
+      <h3>Listado de Pólizas a Vencer Dentro de los Próximos 30 Días</h3>
       <table
          className="table table-bordered"
          id="dataTable"
@@ -45,7 +45,7 @@ function PolizasAvencer({ polizas }) {
             const fechaHoyFormato = fechaHoy.toLocaleDateString()
 
             const fechaParaMenosDiez = new Date()
-            let menosDiez = fechaParaMenosDiez.setDate(fechaParaMenosDiez.getDate()+10)
+            let menosDiez = fechaParaMenosDiez.setDate(fechaParaMenosDiez.getDate()+30)
             const menosDiezFormato = new Date(menosDiez).toLocaleDateString()
 
 

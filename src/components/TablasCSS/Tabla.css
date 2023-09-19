@@ -33,6 +33,17 @@
     margin: 10px 20px 0px 0px;
     gap: 10px;
   }
+  .btn-crear, .btn-buscar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #002a7c;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+    gap: 5px;
+  }
 
   .btn-excel .excel-button {
     display: flex;
@@ -56,4 +67,9 @@
     border-radius: 5px;
     cursor: pointer;
     gap: 5px;
+  }
+
+  .rowTable:hover {
+    background-color: #dfe9f5;
+    cursor: pointer;
   }

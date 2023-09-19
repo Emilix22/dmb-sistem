@@ -55,7 +55,7 @@ function SiniestrosTodosList({ siniestrosAuto, siniestrosHogar }) {
                       key={siniestro + index}
                     />
                   );
-                }) : <tr></tr>
+                }) : <tr> ⌛Cargando...</tr>
               }
               {
                 siniestrosHogar.data 

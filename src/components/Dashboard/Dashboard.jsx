@@ -45,7 +45,7 @@ function Dashboard({ polizas, clientesPersonas, polizasVencer, siniestrosAuto, s
                       />
                     <Widget
                      title="PÓLIZAS A VENCER"
-                     link={<Link to={"/polizas_a_vencer"}>Ver detalle (Próximos 10 días)</Link>}
+                     link={<Link to={"/polizas_a_vencer"}>Ver detalle (Próximos 30 días)</Link>}
                      isMoney="#"
                      counter={polizasVencer}
                      icon={<AssignmentLateIcon className="iconWidget" style={{color: "ff0000", backgroundColor: "dfe9f5"}} />}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './App.css'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import Dashboard from '../Dashboard/Dashboard'
@@ -8,6 +8,8 @@ import ClientesPersonaList from "../ClientesPersonaList/ClientesPersonaList";
 import PolizasAvencer from "../PolizasList/PolizasAvencer";
 import SiniestrosTodosList from "../SiniestrosList/SiniestrosTodosList";
 import SiniestrosTipos from "../SiniestrosList/SiniestrosTipos";
+import ClientePersonaFicha from "../ClientesPersonaList/ClientePersonaFicha";
+import Login from "../Login/Login";
 
 
 function App() {
@@ -18,10 +20,12 @@ function App() {
     const [siniestrosAuto, setSiniestrosAuto] = useState({meta: {total: "Cargando..."}});
     const [siniestrosHogar, setSiniestrosHogar] = useState({meta: {total: "Cargando..."}});
 
+    const {dni} = useParams();
+
     useEffect(() => {
 
         const loadClients = async () => {
-            const response = await fetch("http://localhost:3000/api/clientes")
+            const response = await fetch("https://dmb-back.onrender.com/api/clientes")
 
             const info = await response.json();
             setClientesPersonas(info);
@@ -32,7 +36,7 @@ function App() {
     useEffect(() => {
 
         const loadPolizas = async () => {
-            const response = await fetch("http://localhost:3000/api/polizas")
+            const response = await fetch("https://dmb-back.onrender.com/api/polizas")
 
             const info = await response.json();
             setPolizas(info);
@@ -134,7 +138,7 @@ function App() {
     useEffect(() => {
 
         const loadSiniestrosAuto = async () => {
-            const response = await fetch("http://localhost:3000/api/siniestros_auto")
+            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_auto")
 
             const info = await response.json();
             setSiniestrosAuto(info);
@@ -145,7 +149,7 @@ function App() {
     useEffect(() => {
 
         const loadSiniestrosHogar = async () => {
-            const response = await fetch("http://localhost:3000/api/siniestros_hogar")
+            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_hogar")
 
             const info = await response.json();
             setSiniestrosHogar(info);
@@ -158,8 +162,10 @@ function App() {
             <Sidebar />
             <div className="homeContainer">
                 <Navbar />
-
+    
                 <Routes>
+                    <Route path="/" element= {<Login />} />
+                    
                     <Route path="/dashboard" element={
                         <Dashboard
                          polizas={polizas} 
@@ -186,6 +192,9 @@ function App() {
                     } />
                     <Route path="/siniestros_tipos" element={
                         <SiniestrosTipos />
+                    } />
+                    <Route path={"/cliente_persona/ficha/:id"} element={
+                        <ClientePersonaFicha />
                     } />
 
                 </Routes>

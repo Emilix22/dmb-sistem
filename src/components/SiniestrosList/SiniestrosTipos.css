@@ -1,0 +1,46 @@
+.section-home {
+    padding: 10px 0px;
+}
+.section-home h2 {
+    color: #002a7c;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.cards-siniestros-tipos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 5px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.cards-siniestros-tipos article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    box-shadow: 10px 15px 10px -15px #798280;
+    border: solid 1px #002a7c;
+    border-radius: 5px;
+    width: 90%;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.cards-siniestros-tipos article:hover {
+    transform: scale(1.1);
+}
+
+.cards-siniestros-tipos article .imagen {
+    width: 100%;
+    text-align: center;
+}
+
+@media (min-width: 769px) {
+    .cards-siniestros-tipos article {
+        width: 20%;
+    }
+}    

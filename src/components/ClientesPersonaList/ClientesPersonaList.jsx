@@ -4,6 +4,8 @@ import RowTable from './RowTable'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import PrintIcon from '@mui/icons-material/Print';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { useReactToPrint } from 'react-to-print';
 
 function ClientesPersonaList() {
@@ -17,7 +19,7 @@ function ClientesPersonaList() {
 
     useEffect(() => {
         const loadClients = async () => {
-            const response = await fetch("http://localhost:3000/api/clientes")
+            const response = await fetch("https://dmb-back.onrender.com/api/clientes")
 
             const info = await response.json();
             setClientesPersona(info.data);
@@ -30,6 +32,8 @@ function ClientesPersonaList() {
     return (
         <div className='container'>
           <div className='btn-excel'>
+          <button className='btn-crear'>Agregar Cliente<PersonAddIcon /></button>
+          <button className='btn-buscar'>Buscar Cliente<PersonSearchIcon /></button>
             <DownloadTableExcel
               filename="Listado Clientes Personas"
               sheet="Clientes Personas"
@@ -82,6 +86,7 @@ function ClientesPersonaList() {
                 ? clientesPersona.map((cliente, index) => {
                   return (
                     <RowTable
+                      id={cliente.id_cliente_persona}
                       nombre={cliente.nombre}
                       apellido={cliente.apellido}
                       dni={cliente.dni}
@@ -92,7 +97,7 @@ function ClientesPersonaList() {
                       key={cliente + index}
                     />
                   );
-                }) : <tr></tr>
+                }) : <tr> ⌛ Cargando...</tr>
               }
             </tbody>  
           </table>
