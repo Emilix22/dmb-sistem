@@ -12,7 +12,7 @@ import Featured from "../Featured/Featured";
 import Chart from "../Chart/Chart";
 import { Link } from "react-router-dom";
 
-function Dashboard({ polizas, clientesPersonas, polizasVencer, siniestrosAuto, siniestrosHogar }) {
+function Dashboard({ polizas, clientes, polizasVencer, siniestrosAuto, siniestrosHogar, clientesPersonas, clientesEmpresas }) {
 
 
     return (
@@ -23,9 +23,9 @@ function Dashboard({ polizas, clientesPersonas, polizasVencer, siniestrosAuto, s
             <div className="widgets">
                     <Widget
                      title="CLIENTES"
-                     link="Ver Listado de clientes"
+                     link={<Link to={'/clientes_todos_list'}>Ver Listado de clientes</Link>}
                      isMoney="#"
-                     counter={clientesPersonas.meta.total}
+                     counter={clientes}
                      icon= {<GroupIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "dfe9f5"}} />}
                      icon2={<StoreIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "dfe9f5"}} />}
                       />
@@ -45,6 +45,7 @@ function Dashboard({ polizas, clientesPersonas, polizasVencer, siniestrosAuto, s
                       />
                     <Widget
                      title="PÓLIZAS A VENCER"
+                     subtitle="(próximos 30 días)"
                      link={<Link to={"/polizas_a_vencer"}>Ver detalle (Próximos 30 días)</Link>}
                      isMoney="#"
                      counter={polizasVencer}
@@ -53,7 +54,7 @@ function Dashboard({ polizas, clientesPersonas, polizasVencer, siniestrosAuto, s
                 </div>
                 <div className="charts">
                     <Featured />
-                    <Chart />
+                    <Chart clientesPersonas={clientesPersonas} clientesEmpresas={clientesEmpresas} />
                 </div>
             
         </div>

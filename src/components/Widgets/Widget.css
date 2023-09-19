@@ -26,6 +26,12 @@
     color: #002a7c;
     margin: 0;
 }
+.left .subtitle {
+    font-weight: bold;
+    font-size: 11px;
+    color: #002a7c;
+    margin: 0;
+}
 .left .counterWidget {
     font-size: 28px;
     font-weight: 300;

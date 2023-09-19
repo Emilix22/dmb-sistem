@@ -6,6 +6,7 @@ const Widget = (props) => {
         <div className="widget">
             <div className="left">
                 <span className="title">{props.title}</span>
+                <span className="subtitle">{props.subtitle}</span>
                 <span className="counterWidget">{props.isMoney} {props.counter}</span>
                 <span className="link">{props.link}</span>
             </div>

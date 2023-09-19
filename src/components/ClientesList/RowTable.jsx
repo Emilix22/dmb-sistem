@@ -11,7 +11,9 @@ function RowTable(props) {
     return (
         <tr className="rowTable" onClick={mostrarFicha}>
             <td>{props.nombre}</td>
-            <td>{props.apellido}</td>
+            {
+                props.apellido ? <td>{props.apellido}</td> : null
+            }
             <td>{props.dni}</td>
             <td>{props.email}</td>
             <td>{props.direccion}</td>

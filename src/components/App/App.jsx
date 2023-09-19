@@ -11,11 +11,13 @@ import SiniestrosTipos from "../SiniestrosList/SiniestrosTipos";
 import ClientePersonaFicha from "../ClientesList/ClientePersonaFicha";
 import Login from "../Login/Login";
 import PolizasList from "../PolizasList/PolizasList";
+import ClientesTodosList from "../ClientesList/ClientesTodosList";
 
 
 function App() {
 
-    const [clientesPersonas, setClientesPersonas] = useState({meta: {total: "Cargando..."}});
+    const [clientesPersonas, setClientesPersonas] = useState({meta: {total: 0}});
+    const [clientesEmpresas, setClientesEmpresas] = useState({meta: {total: 0}});
     const [polizas, setPolizas] = useState({meta: {total: "Cargando..."}});
     const [polizasVencer, setPolizasVencer] = useState(0);
     const [siniestrosAuto, setSiniestrosAuto] = useState({meta: {total: "Cargando..."}});
@@ -32,6 +34,17 @@ function App() {
             setClientesPersonas(info);
           };
           loadClients()
+    }, []);
+
+    useEffect(() => {
+
+        const loadClientsEmpresas = async () => {
+            const response = await fetch("https://dmb-back.onrender.com/api/clientes/empresas")
+
+            const info = await response.json();
+            setClientesEmpresas(info);
+          };
+          loadClientsEmpresas()
     }, []);
 
     useEffect(() => {
@@ -170,11 +183,17 @@ function App() {
                     <Route path="/dashboard" element={
                         <Dashboard
                          polizas={polizas} 
-                         clientesPersonas={clientesPersonas} 
+                         clientes={clientesPersonas.meta.total + clientesEmpresas.meta.total} 
                          polizasVencer={polizasVencer}
                          siniestrosAuto={siniestrosAuto}
                          siniestrosHogar={siniestrosHogar}
+                         clientesPersonas={clientesPersonas}
+                         clientesEmpresas={clientesEmpresas}
                         />
+                    } />
+
+                    <Route path="/clientes_todos_list" element={
+                        <ClientesTodosList />
                     } />
 
                     <Route path="/clientes_personas_list" element={
