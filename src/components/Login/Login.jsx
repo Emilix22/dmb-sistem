@@ -9,7 +9,7 @@ function Login() {
             <h3 className='welcome-login'>BIENVENID@</h3>
             <div className='login-form'>
                 
-                <div className='form-group'>
+                <div className='form-group-1'>
                     <label htmlFor="usuario">Usuario</label>
                     <input
                      className='form-input'
@@ -24,7 +24,7 @@ function Login() {
                    
                     } */}
                 </div>
-                <div className='form-group'>
+                <div className='form-group-1'>
                     <label htmlFor="passwordLogin">Password</label>
                     <input
                      className='form-input'
@@ -42,7 +42,7 @@ function Login() {
                 {/* <div className='form-group'>
                     <FormControlLabel name='rememberUser' control={<Checkbox onChange={(e) => setRememberUser(e.target.value)} color="success" />} label="Recordarme" />
                 </div> */}
-                <button >Login</button>
+                <button className='btn-login'>Login</button>
             </div>
         </form> 
         </div>

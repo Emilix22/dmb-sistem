@@ -4,12 +4,13 @@ import { Routes, Route, useParams } from 'react-router-dom';
 import Sidebar from "../Sidebar/Sidebar";
 import Navbar from "../Navbar/Navbar";
 import Dashboard from '../Dashboard/Dashboard'
-import ClientesPersonaList from "../ClientesPersonaList/ClientesPersonaList";
+import ClientesPersonaList from "../ClientesList/ClientesPersonaList";
 import PolizasAvencer from "../PolizasList/PolizasAvencer";
 import SiniestrosTodosList from "../SiniestrosList/SiniestrosTodosList";
 import SiniestrosTipos from "../SiniestrosList/SiniestrosTipos";
-import ClientePersonaFicha from "../ClientesPersonaList/ClientePersonaFicha";
+import ClientePersonaFicha from "../ClientesList/ClientePersonaFicha";
 import Login from "../Login/Login";
+import PolizasList from "../PolizasList/PolizasList";
 
 
 function App() {
@@ -190,6 +191,11 @@ function App() {
                          siniestrosHogar={siniestrosHogar} 
                         />
                     } />
+
+                    <Route path="/polizas_todas_list" element={
+                        <PolizasList polizas={polizas} />
+                    } />
+
                     <Route path="/siniestros_tipos" element={
                         <SiniestrosTipos />
                     } />

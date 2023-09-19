@@ -31,7 +31,7 @@ function Dashboard({ polizas, clientesPersonas, polizasVencer, siniestrosAuto, s
                       />
                     <Widget 
                      title="PÓLIZAS"
-                     link="Ver todas las pólizas"
+                     link={<Link to={'/polizas_todas_list'}>Ver todas las pólizas</Link>}
                      isMoney="#"
                      counter={polizas.meta.total}
                      icon={<DescriptionIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "dfe9f5"}} />}
