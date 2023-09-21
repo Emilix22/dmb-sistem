@@ -12,7 +12,7 @@ import Featured from "../Featured/Featured";
 import Chart from "../Chart/Chart";
 import { Link } from "react-router-dom";
 
-function Dashboard({ polizas, clientes, polizasVencer, siniestrosAuto, siniestrosHogar, clientesPersonas, clientesEmpresas }) {
+function Dashboard({ polizas, clientes, polizasVencer, siniestrosAuto, siniestrosMoto, siniestrosHogar, siniestrosConsorcio, siniestrosOtro, clientesPersonas, clientesEmpresas }) {
 
 
     return (
@@ -40,7 +40,7 @@ function Dashboard({ polizas, clientes, polizasVencer, siniestrosAuto, siniestro
                      title="SINIESTROS DENUNCIADOS"
                      link={<Link to={'/siniestros_todos_list'}>Ver todos los siniestros</Link>}
                      isMoney="#"
-                     counter={siniestrosAuto.meta.total + siniestrosHogar.meta.total}
+                     counter={siniestrosAuto.meta.total + siniestrosMoto.meta.total + siniestrosHogar.meta.total + siniestrosConsorcio.meta.total + siniestrosOtro.meta.total}
                      icon={<NoteAltIcon className="iconWidget" style={{color: "#002a7c", backgroundColor: "dfe9f5"}} />}
                       />
                     <Widget

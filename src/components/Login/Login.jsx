@@ -4,6 +4,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Cookie from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 function Login({ setUsuario }) {
@@ -12,11 +13,13 @@ function Login({ setUsuario }) {
     const [password, setPassword] = useState()
     const [rememberUser, setRememberUser] = useState()
     const [errors, setErrors] = useState();
+    const [conectando, setConectando] = useState(false)
 
     const history = useNavigate()
 
     const handleLogin = (event) => {
         event.preventDefault()
+        setConectando(true)
         fetch('https://dmb-back.onrender.com/api/usuarios/login', {
             method: 'POST',
             body: JSON.stringify({
@@ -99,7 +102,10 @@ function Login({ setUsuario }) {
                 </div>
                 <button className='btn-login' onClick={handleLogin}>Login</button>
             </div>
-        </form> 
+        </form>
+        {
+           conectando ? <div><span>Conectando...</span> <CircularProgress /></div> : null
+        } 
         </div>
     )
 }

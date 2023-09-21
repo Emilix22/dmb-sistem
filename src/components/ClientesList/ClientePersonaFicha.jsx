@@ -128,22 +128,40 @@ function ClientePersonaFicha() {
                 polizas.data.map((poliza, index) => {
                   if(poliza.tipos_polizas.nombre_tipo_poliza === "Auto") {
                     return <input
-                  type="text"
-                  name="polizas"
-                  id="polizas"
-                  value={'N°: '+poliza.numero_poliza+' - Tipo: '+poliza.tipos_polizas.nombre_tipo_poliza+' - Aseguradora: '+poliza.aseguradoras.nombre+' - Auto: '+poliza.autos.marca+' '+poliza.autos.modelo+' ('+poliza.autos.año+')'}
-                  disabled
-                  key={poliza + index}
-              />
-                  } else {
+                      type="text"
+                      name="polizas"
+                      id="polizas"
+                      value={'N°: '+poliza.numero_poliza+' - Tipo: '+poliza.tipos_polizas.nombre_tipo_poliza+' - Aseguradora: '+poliza.aseguradoras.nombre+' - Auto: '+poliza.autos.marca+' '+poliza.autos.modelo+' ('+poliza.autos.año+')'}
+                      disabled
+                      key={poliza + index}
+                    />
+                  } else if (poliza.tipos_polizas.nombre_tipo_poliza === "Moto") {
                     return <input
-                  type="text"
-                  name="polizas"
-                  id="polizas"
-                  value={'N°: '+poliza.numero_poliza+' - Tipo: '+poliza.tipos_polizas.nombre_tipo_poliza+' - Aseguradora: '+poliza.aseguradoras.nombre+' - Ubicación Riesgo: '+poliza.ubicaciones_riesgos.calle + " "+ poliza.ubicaciones_riesgos.altura +" "+ poliza.ubicaciones_riesgos.piso +" "+ poliza.ubicaciones_riesgos.departamento +" "+ "("+poliza.ubicaciones_riesgos.cp+")" +" "+poliza.ubicaciones_riesgos.localidad+", "+poliza.ubicaciones_riesgos.provincia}
-                  disabled
-                  key={poliza + index}
-              />
+                      type="text"
+                      name="polizas"
+                      id="polizas"
+                      value={'N°: '+poliza.numero_poliza+' - Tipo: '+poliza.tipos_polizas.nombre_tipo_poliza+' - Aseguradora: '+poliza.aseguradoras.nombre+' - Moto: '+poliza.motos.marca+' '+poliza.motos.modelo+' ('+poliza.motos.año+')'}
+                      disabled
+                      key={poliza + index}
+                    />
+                  } else if(poliza.tipos_polizas.nombre_tipo_poliza === "Hogar" || poliza.tipos_polizas.nombre_tipo_poliza === "Consorcio") {
+                    return <input
+                      type="text"
+                      name="polizas"
+                      id="polizas"
+                      value={'N°: '+poliza.numero_poliza+' - Tipo: '+poliza.tipos_polizas.nombre_tipo_poliza+' - Aseguradora: '+poliza.aseguradoras.nombre+' - Ubicación Riesgo: '+poliza.ubicaciones_riesgos.calle + " "+ poliza.ubicaciones_riesgos.altura +" "+ poliza.ubicaciones_riesgos.piso +" "+ poliza.ubicaciones_riesgos.departamento +" "+ "("+poliza.ubicaciones_riesgos.cp+")" +" "+poliza.ubicaciones_riesgos.localidad+", "+poliza.ubicaciones_riesgos.provincia}
+                      disabled
+                      key={poliza + index}
+                    />
+                  } else if(poliza.tipos_polizas.nombre_tipo_poliza === "Accidentes Personales") {
+                    return <input
+                      type="text"
+                      name="polizas"
+                      id="polizas"
+                      value={'N°: '+poliza.numero_poliza+' - Tipo: '+poliza.tipos_polizas.nombre_tipo_poliza+' - Aseguradora: '+poliza.aseguradoras.nombre}
+                      disabled
+                      key={poliza + index}
+                    />
                   }
                   
                 })

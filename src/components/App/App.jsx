@@ -28,6 +28,7 @@ function App() {
     const [siniestrosMoto, setSiniestrosMoto] = useState({meta: {total: "Cargando..."}});
     const [siniestrosHogar, setSiniestrosHogar] = useState({meta: {total: "Cargando..."}});
     const [siniestrosConsorcio, setSiniestrosConsorcio] = useState({meta: {total: "Cargando..."}});
+    const [siniestrosOtro, setSiniestrosOtro] = useState({meta: {total: "Cargando..."}});
     const [usuario, setUsuario] = useState(null)
 
     const userLogin = Cookie.get('userLogin');
@@ -208,6 +209,17 @@ function App() {
           loadSiniestrosConsorcio()
     }, [])
 
+    useEffect(() => {
+
+        const loadSiniestrosOtro = async () => {
+            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_otro")
+
+            const info = await response.json();
+            setSiniestrosOtro(info);
+          };
+          loadSiniestrosOtro()
+    }, [])
+
     return (
         <div className="home">
             <Sidebar usuario={usuario} setUsuario={setUsuario} />
@@ -223,6 +235,8 @@ function App() {
                         siniestrosAuto={siniestrosAuto}
                         siniestrosMoto={siniestrosMoto}
                         siniestrosHogar={siniestrosHogar}
+                        siniestrosConsorcio={siniestrosConsorcio} 
+                        siniestrosOtro={siniestrosOtro}
                         clientesPersonas={clientesPersonas}
                         clientesEmpresas={clientesEmpresas}
                         /> : <Login setUsuario={setUsuario} />
@@ -234,7 +248,10 @@ function App() {
                         clientes={clientesPersonas.meta.total + clientesEmpresas.meta.total} 
                         polizasVencer={polizasVencer}
                         siniestrosAuto={siniestrosAuto}
+                        siniestrosMoto={siniestrosMoto}
                         siniestrosHogar={siniestrosHogar}
+                        siniestrosConsorcio={siniestrosConsorcio} 
+                        siniestrosOtro={siniestrosOtro}
                         clientesPersonas={clientesPersonas}
                         clientesEmpresas={clientesEmpresas}
                         /> : <Login setUsuario={setUsuario} />
@@ -254,9 +271,11 @@ function App() {
                     
                     <Route path="/siniestros_todos_list" element={
                         usuario ? <SiniestrosTodosList
-                        siniestrosAuto={siniestrosAuto} 
+                        siniestrosAuto={siniestrosAuto}
+                        siniestrosMoto={siniestrosMoto} 
                         siniestrosHogar={siniestrosHogar} 
-                        siniestrosConsorcio={siniestrosConsorcio} 
+                        siniestrosConsorcio={siniestrosConsorcio}  
+                        siniestrosOtro={siniestrosOtro} 
                         /> : <Login setUsuario={setUsuario} />
                     } />
 
