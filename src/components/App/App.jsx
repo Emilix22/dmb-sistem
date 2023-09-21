@@ -12,18 +12,33 @@ import ClientePersonaFicha from "../ClientesList/ClientePersonaFicha";
 import Login from "../Login/Login";
 import PolizasList from "../PolizasList/PolizasList";
 import ClientesTodosList from "../ClientesList/ClientesTodosList";
+import Cookie from 'js-cookie'
+import {useNavigate} from 'react-router-dom'
 
 
 function App() {
+
+    const history = useNavigate()
 
     const [clientesPersonas, setClientesPersonas] = useState({meta: {total: 0}});
     const [clientesEmpresas, setClientesEmpresas] = useState({meta: {total: 0}});
     const [polizas, setPolizas] = useState({meta: {total: "Cargando..."}});
     const [polizasVencer, setPolizasVencer] = useState(0);
     const [siniestrosAuto, setSiniestrosAuto] = useState({meta: {total: "Cargando..."}});
+    const [siniestrosMoto, setSiniestrosMoto] = useState({meta: {total: "Cargando..."}});
     const [siniestrosHogar, setSiniestrosHogar] = useState({meta: {total: "Cargando..."}});
+    const [siniestrosConsorcio, setSiniestrosConsorcio] = useState({meta: {total: "Cargando..."}});
+    const [usuario, setUsuario] = useState(null)
+
+    const userLogin = Cookie.get('userLogin');
 
     const {dni} = useParams();
+
+    useEffect(() => {
+    
+        userLogin && setUsuario(userLogin)
+    
+        },[])
 
     useEffect(() => {
 
@@ -162,6 +177,17 @@ function App() {
 
     useEffect(() => {
 
+        const loadSiniestrosMoto = async () => {
+            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_moto")
+
+            const info = await response.json();
+            setSiniestrosMoto(info);
+          };
+          loadSiniestrosMoto()
+    }, [])
+
+    useEffect(() => {
+
         const loadSiniestrosHogar = async () => {
             const response = await fetch("https://dmb-back.onrender.com/api/siniestros_hogar")
 
@@ -171,55 +197,79 @@ function App() {
           loadSiniestrosHogar()
     }, [])
 
+    useEffect(() => {
+
+        const loadSiniestrosConsorcio = async () => {
+            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_consorcio")
+
+            const info = await response.json();
+            setSiniestrosConsorcio(info);
+          };
+          loadSiniestrosConsorcio()
+    }, [])
+
     return (
         <div className="home">
-            <Sidebar />
+            <Sidebar usuario={usuario} setUsuario={setUsuario} />
             <div className="homeContainer">
-                <Navbar />
+                <Navbar usuario={usuario} />
     
                 <Routes>
-                    <Route path="/" element= {<Login />} />
-                    
-                    <Route path="/dashboard" element={
-                        <Dashboard
-                         polizas={polizas} 
-                         clientes={clientesPersonas.meta.total + clientesEmpresas.meta.total} 
-                         polizasVencer={polizasVencer}
-                         siniestrosAuto={siniestrosAuto}
-                         siniestrosHogar={siniestrosHogar}
-                         clientesPersonas={clientesPersonas}
-                         clientesEmpresas={clientesEmpresas}
-                        />
+                    <Route path="/" element= {
+                        usuario ? <Dashboard
+                        polizas={polizas} 
+                        clientes={clientesPersonas.meta.total + clientesEmpresas.meta.total} 
+                        polizasVencer={polizasVencer}
+                        siniestrosAuto={siniestrosAuto}
+                        siniestrosMoto={siniestrosMoto}
+                        siniestrosHogar={siniestrosHogar}
+                        clientesPersonas={clientesPersonas}
+                        clientesEmpresas={clientesEmpresas}
+                        /> : <Login setUsuario={setUsuario} />
                     } />
-
+                      
+                    <Route path="/dashboard" element={
+                        usuario ? <Dashboard
+                        polizas={polizas} 
+                        clientes={clientesPersonas.meta.total + clientesEmpresas.meta.total} 
+                        polizasVencer={polizasVencer}
+                        siniestrosAuto={siniestrosAuto}
+                        siniestrosHogar={siniestrosHogar}
+                        clientesPersonas={clientesPersonas}
+                        clientesEmpresas={clientesEmpresas}
+                        /> : <Login setUsuario={setUsuario} />
+                    } />
+                
                     <Route path="/clientes_todos_list" element={
-                        <ClientesTodosList />
+                        usuario ? <ClientesTodosList /> : <Login setUsuario={setUsuario} />
                     } />
 
                     <Route path="/clientes_personas_list" element={
-                        <ClientesPersonaList />
+                        usuario ? <ClientesPersonaList /> : <Login setUsuario={setUsuario} />
                     } />
-
+                
                     <Route path="/polizas_a_vencer" element={
-                        <PolizasAvencer polizas={polizas} />
-                    } />
-
+                        usuario ? <PolizasAvencer polizas={polizas} /> : <Login setUsuario={setUsuario} />
+                    } /> 
+                    
                     <Route path="/siniestros_todos_list" element={
-                        <SiniestrosTodosList
-                         siniestrosAuto={siniestrosAuto} 
-                         siniestrosHogar={siniestrosHogar} 
-                        />
+                        usuario ? <SiniestrosTodosList
+                        siniestrosAuto={siniestrosAuto} 
+                        siniestrosHogar={siniestrosHogar} 
+                        siniestrosConsorcio={siniestrosConsorcio} 
+                        /> : <Login setUsuario={setUsuario} />
                     } />
 
                     <Route path="/polizas_todas_list" element={
-                        <PolizasList polizas={polizas} />
+                        usuario ? <PolizasList polizas={polizas} /> : <Login setUsuario={setUsuario} />
                     } />
-
+                        
                     <Route path="/siniestros_tipos" element={
-                        <SiniestrosTipos />
+                        usuario ? <SiniestrosTipos /> : <Login setUsuario={setUsuario} />
                     } />
+                    
                     <Route path={"/cliente_persona/ficha/:id"} element={
-                        <ClientePersonaFicha />
+                        usuario ? <ClientePersonaFicha />  : <Login setUsuario={setUsuario} />
                     } />
 
                 </Routes>

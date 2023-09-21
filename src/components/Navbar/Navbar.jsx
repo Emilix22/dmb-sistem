@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 //import MessageIcon from '@mui/icons-material/Message';
 import avatarimg from '/img/man-g966456346_1280.png'
 
-const Navbar = () => {
+const Navbar = ({ usuario }) => {
     return (
         <div className="navbar">
             <div className="wrapper">
@@ -12,7 +12,9 @@ const Navbar = () => {
                     <input type="text" placeholder='Buscar...' />
                     <SearchIcon />
                 </div> */}
-                <div className="items">
+                {
+                    usuario 
+                    ? <div className="items">
                     {/* <div className="item">
                     <NotificationsActiveIcon className='iconNav' />
                         <div className="counter">1</div>
@@ -21,13 +23,16 @@ const Navbar = () => {
                     <MessageIcon className='iconNav' />
                         <div className="counter">3</div>
                     </div> */}
+                    
                     <div className="item">
-                        <span>Nombre Usuario</span>
+                        <span>{usuario.nombre+" "+usuario.apellido}</span>
                     </div>
                     <div className="item">
-                        <img className="avatar" src={avatarimg} alt="avatar" />
+                        <img className="avatar" src={`https://dmb-back.onrender.com/img/usuarios/${usuario.imagen}`} alt="avatar" />
                     </div>
-                </div>
+                </div> : null
+                }
+                
             </div>
         </div>
     )

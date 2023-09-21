@@ -15,6 +15,13 @@
     color: #002a7c;
   }
 
+  .login-container {
+    border: solid 2px #002a7c;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 30px 0px;
+  }
+
   .login-form {
     display: flex;
     align-items: center;
@@ -23,6 +30,7 @@
     padding: 10px;
     flex-direction: column;
     text-align: center;
+    font-weight: bold;
   }
 
   .form-group-1 {
@@ -52,10 +60,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    padding: 5px 20px;
     background-color: #002a7c;
     color: whitesmoke;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
   }
+
+  .error-msg {
+    color: rgb(245, 49, 49);
+}
   

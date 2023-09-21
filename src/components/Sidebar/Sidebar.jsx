@@ -16,16 +16,29 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import DescriptionIcon from '@mui/icons-material/Description';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import logo from '../../assets/dmbLogo.svg'
+import Cookie from 'js-cookie'
+import {useNavigate} from 'react-router-dom'
 
 
-function Sidebar() {
+function Sidebar({ usuario, setUsuario }) {
+
+    const history = useNavigate()
+
+    const logout = (event) => {
+        event.preventDefault()
+        setUsuario(null)
+        Cookie.remove('userLogin')
+        history('/')
+    }
 
     return (
         <div className="sidebar">
             <div className="top">
                 <img className="logo" src={logo} />
             </div>
-            <div className="center">
+            {
+                usuario != null 
+                ?<div className="center">
                 <ul>
                     <p className="title">PRINCIPAL</p>
 
@@ -100,10 +113,12 @@ function Sidebar() {
 
                     <li>
                         <MeetingRoomIcon className="icon" />
-                        <span>Salir</span>
+                        <span onClick={logout}>Salir</span>
                     </li>
                 </ul>
-            </div>
+            </div> : ""
+            }
+            
             <div className="bottom">
                 {/* para poner algo abajo */}
             </div> 

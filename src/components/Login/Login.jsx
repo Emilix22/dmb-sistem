@@ -1,28 +1,83 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Login.css';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Cookie from 'js-cookie'
+import {useNavigate} from 'react-router-dom'
 
 
-function Login() {
+function Login({ setUsuario }) {
+
+    const [userDni, setUserDni] = useState()
+    const [password, setPassword] = useState()
+    const [rememberUser, setRememberUser] = useState()
+    const [errors, setErrors] = useState();
+
+    const history = useNavigate()
+
+    const handleLogin = (event) => {
+        event.preventDefault()
+        fetch('https://dmb-back.onrender.com/api/usuarios/login', {
+            method: 'POST',
+            body: JSON.stringify({
+                usuario: userDni,
+                password: password
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(info => {
+            
+            {
+
+                if (info.error) {
+                    setErrors(info.error)
+                }else{
+
+                    setUsuario(info)
+                    setUserDni('')
+                    setPassword('')
+
+                    if(rememberUser) {
+                        Cookie.set('userLogin', info, {
+                        expires: 10,
+                        secure: true,
+                        sameSite: 'strict',
+                        path: '/'
+                        })
+                    }
+                    history('/dashboard')  
+                }
+            }
+            
+        })
+        
+    }
+
     return (
         <div className='login-pagina'>
            <form className='login-container' >
             <h3 className='welcome-login'>BIENVENID@</h3>
             <div className='login-form'>
-                
+                {
+                    errors && !(errors.password || errors.usuario) ? <span className='error-msg'> {errors} </span> : ''   
+                }
                 <div className='form-group-1'>
-                    <label htmlFor="usuario">Usuario</label>
+                    <label htmlFor="usuario">Usuario (DNI)</label>
                     <input
                      className='form-input'
                      type="usuario"
                      id='usuario'
                      name='usuario'
-                     placeholder='Ingrese su Usuario...'
-                     //onChange={(e) => setUserEmail(e.target.value)}
+                     placeholder='Ingrese su DNI...'
+                     onChange={(e) => setUserDni(e.target.value)}
                     />
-                    {/* {
-                        errors && errors.email ? <span className='error-msg'> {errors.email.msg} </span> : ''
+                    {
+                        errors && errors.usuario ? <span className='error-msg'> {errors.usuario.msg} </span> : ''
                    
-                    } */}
+                    }
                 </div>
                 <div className='form-group-1'>
                     <label htmlFor="passwordLogin">Password</label>
@@ -32,17 +87,17 @@ function Login() {
                      type="password"
                      name='password'
                      placeholder='Ingrese su Password...'
-                     //onChange={(e) => setPassword(e.target.value)} 
+                     onChange={(e) => setPassword(e.target.value)} 
                      />
-                     {/* {
+                     {
                         errors && errors.password ? <span className='error-msg'> {errors.password.msg} </span> : ''
                    
-                     } */}
+                     }
                 </div>
-                {/* <div className='form-group'>
+                <div className='form-group-1'>
                     <FormControlLabel name='rememberUser' control={<Checkbox onChange={(e) => setRememberUser(e.target.value)} color="success" />} label="Recordarme" />
-                </div> */}
-                <button className='btn-login'>Login</button>
+                </div>
+                <button className='btn-login' onClick={handleLogin}>Login</button>
             </div>
         </form> 
         </div>
