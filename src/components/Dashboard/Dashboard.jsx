@@ -53,7 +53,7 @@ function Dashboard({ polizas, clientes, polizasVencer, siniestrosAuto, siniestro
                       />
                 </div>
                 <div className="charts">
-                    <Featured />
+                    <Featured polizas={polizas} />
                     <Chart clientesPersonas={clientesPersonas} clientesEmpresas={clientesEmpresas} />
                 </div>
             

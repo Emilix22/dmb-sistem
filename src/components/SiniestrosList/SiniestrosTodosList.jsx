@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
@@ -8,14 +8,16 @@ import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { useReactToPrint } from 'react-to-print';
 
 function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConsorcio, siniestrosMoto, siniestrosOtro }) {
+  
+  const tablaSiniestrosTodos = useRef(null);
 
   const handlePrint = useReactToPrint({
     content: () => tablaSiniestrosTodos.current,
     documentTitle: 'SiniestrosTodos',
+    //pageStyle: 'print'
     // onAfterPrint: () => alert('Print success')
   })
 
-  const tablaSiniestrosTodos = useRef(null);
 
     return (
       <div className='container'>
@@ -86,7 +88,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       aseguradora={siniestro.polizas_siniestro_auto.aseguradora_id}
                       consecuencia={ siniestro.consecuencia}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
-                      observaciones={'Observaciones'}//poner observaciones
+                      observaciones={siniestro.observaciones}
                       key={siniestro + index}
                     />
                   );
@@ -120,7 +122,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       aseguradora={siniestro.polizas_siniestro_hogar.aseguradora_id}
                       consecuencia={consecuencias}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
-                      observaciones={'Observaciones'}//poner observaciones
+                      observaciones={siniestro.observaciones}
                       key={siniestro + index}
                     />
                   );
@@ -149,7 +151,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       aseguradora={siniestro.polizas_siniestro_consorcio.aseguradora_id}
                       consecuencia={consecuencias}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
-                      observaciones={'Observaciones'}//poner observaciones
+                      observaciones={siniestro.observaciones}
                       key={siniestro + index}
                     />
                   );
@@ -168,7 +170,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       aseguradora={siniestro.polizas_siniestro_moto.aseguradora_id}
                       consecuencia={ siniestro.consecuencia}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
-                      observaciones={'Observaciones'}//poner observaciones
+                      observaciones={siniestro.observaciones}
                       key={siniestro + index}
                     />
                   );
@@ -188,7 +190,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       aseguradora={siniestro.polizas_siniestro_otro.aseguradora_id}
                       //consecuencia={ siniestro.consecuencia}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
-                      observaciones={'Observaciones'}//poner observaciones
+                      observaciones={siniestro.observaciones}
                       key={siniestro + index}
                     />
                   );

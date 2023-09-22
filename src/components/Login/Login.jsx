@@ -5,6 +5,7 @@ import Checkbox from '@mui/material/Checkbox';
 import Cookie from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 import CircularProgress from '@mui/material/CircularProgress';
+import isotipo from '../../assets/dmb_isotipo_lineas.svg'
 
 
 function Login({ setUsuario }) {
@@ -102,10 +103,10 @@ function Login({ setUsuario }) {
                 </div>
                 <button className='btn-login' onClick={handleLogin}>Login</button>
             </div>
+            {
+                conectando ? <div className='conectando'><span>Conectando...</span> <img src={isotipo} alt="logo-girando" /></div> : null
+            }
         </form>
-        {
-           conectando ? <div><span>Conectando...</span> <CircularProgress /></div> : null
-        } 
         </div>
     )
 }
