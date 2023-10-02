@@ -1,6 +1,14 @@
 import React, { useRef, useState } from 'react'
 import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable'
+import imgAllianz from '../../assets/imgAllianz.png'
+import imgATM from '../../assets/imgATM.png'
+import imgFederación_Patronal from '../../assets/imgFederación_Patronal.png'
+import imgHolando_Seguros from '../../assets/imgHolando_Seguros.png'
+import imgMercantil_Andina from '../../assets/imgMercantil_Andina.png'
+import imgVictoria_Seguros from '../../assets/imgVictoria_Seguros.png'
+import imgEXPERTA from '../../assets/imgEXPERTA.svg'
+import imgMapfre from '../../assets/imgMapfre.webp'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import PrintIcon from '@mui/icons-material/Print';
@@ -85,7 +93,25 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       tipo_siniestro={"Auto"}
                       cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_auto.nombre+" "+siniestro.clientes_personas_siniestro_auto.apellido : siniestro.clientes_empresas_siniestro_auto.nombre_empresa}
                       poliza={siniestro.polizas_siniestro_auto.numero_poliza}
-                      aseguradora={siniestro.polizas_siniestro_auto.aseguradora_id}
+                      aseguradora={
+                        siniestro.polizas_siniestro_auto.aseguradora_id === 1 
+                        ? <img style={{width: '80px'}} src={imgAllianz} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_auto.aseguradora_id === 2 
+                        ? <img style={{width: '80px'}} src={imgATM} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_auto.aseguradora_id === 3 
+                        ? <img style={{width: '150px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_auto.aseguradora_id === 4 
+                        ? <img style={{width: '80px'}} src={imgHolando_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_auto.aseguradora_id === 5 
+                        ? <img style={{width: '80px'}} src={imgMapfre} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_auto.aseguradora_id === 6 
+                        ? <img style={{width: '80px'}} src={imgMercantil_Andina} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_auto.aseguradora_id === 7 
+                        ? <img style={{width: '80px'}} src={imgVictoria_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_auto.aseguradora_id === 8 
+                        ? <img style={{width: '80px'}} src={imgEXPERTA} alt="imgCompania" /> 
+                        : " "
+                      }
                       consecuencia={ siniestro.consecuencia}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
                       observaciones={siniestro.observaciones}
@@ -119,7 +145,25 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       tipo_siniestro={"Hogar"}
                       cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_hogar.nombre+" "+siniestro.clientes_personas_siniestro_hogar.apellido : siniestro.clientes_empresas_siniestro_hogar.nombre_empresa}
                       poliza={siniestro.polizas_siniestro_hogar.numero_poliza}
-                      aseguradora={siniestro.polizas_siniestro_hogar.aseguradora_id}
+                      aseguradora={
+                        siniestro.polizas_siniestro_hogar.aseguradora_id === 1 
+                        ? <img style={{width: '80px'}} src={imgAllianz} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_hogar.aseguradora_id === 2 
+                        ? <img style={{width: '80px'}} src={imgATM} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_hogar.aseguradora_id === 3 
+                        ? <img style={{width: '150px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_hogar.aseguradora_id === 4 
+                        ? <img style={{width: '80px'}} src={imgHolando_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_hogar.aseguradora_id === 5 
+                        ? <img style={{width: '80px'}} src={imgMapfre} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_hogar.aseguradora_id === 6 
+                        ? <img style={{width: '80px'}} src={imgMercantil_Andina} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_hogar.aseguradora_id === 7 
+                        ? <img style={{width: '80px'}} src={imgVictoria_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_hogar.aseguradora_id === 8 
+                        ? <img style={{width: '80px'}} src={imgEXPERTA} alt="imgCompania" /> 
+                        : " "
+                      }
                       consecuencia={consecuencias}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
                       observaciones={siniestro.observaciones}
@@ -148,7 +192,25 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       tipo_siniestro={"Consorcio"}
                       cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_consorcio.nombre+" "+siniestro.clientes_personas_siniestro_consorcio.apellido : siniestro.clientes_empresas_siniestro_consorcio.nombre_empresa}
                       poliza={siniestro.polizas_siniestro_consorcio.numero_poliza}
-                      aseguradora={siniestro.polizas_siniestro_consorcio.aseguradora_id}
+                      aseguradora={
+                        siniestro.polizas_siniestro_consorcio.aseguradora_id === 1 
+                        ? <img style={{width: '80px'}} src={imgAllianz} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_consorcio.aseguradora_id === 2 
+                        ? <img style={{width: '80px'}} src={imgATM} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_consorcio.aseguradora_id === 3 
+                        ? <img style={{width: '150px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_consorcio.aseguradora_id === 4 
+                        ? <img style={{width: '80px'}} src={imgHolando_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_consorcio.aseguradora_id === 5 
+                        ? <img style={{width: '80px'}} src={imgMapfre} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_consorcio.aseguradora_id === 6 
+                        ? <img style={{width: '80px'}} src={imgMercantil_Andina} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_consorcio.aseguradora_id === 7 
+                        ? <img style={{width: '80px'}} src={imgVictoria_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_consorcio.aseguradora_id === 8 
+                        ? <img style={{width: '80px'}} src={imgEXPERTA} alt="imgCompania" /> 
+                        : " "
+                      }
                       consecuencia={consecuencias}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
                       observaciones={siniestro.observaciones}
@@ -167,7 +229,25 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       tipo_siniestro={"Moto"}
                       cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_moto.nombre+" "+siniestro.clientes_personas_siniestro_moto.apellido : siniestro.clientes_empresas_siniestro_moto.nombre_empresa}
                       poliza={siniestro.polizas_siniestro_moto.numero_poliza}
-                      aseguradora={siniestro.polizas_siniestro_moto.aseguradora_id}
+                      aseguradora={
+                        siniestro.polizas_siniestro_moto.aseguradora_id === 1 
+                        ? <img style={{width: '80px'}} src={imgAllianz} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_moto.aseguradora_id === 2 
+                        ? <img style={{width: '80px'}} src={imgATM} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_moto.aseguradora_id === 3 
+                        ? <img style={{width: '150px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_moto.aseguradora_id === 4 
+                        ? <img style={{width: '80px'}} src={imgHolando_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_moto.aseguradora_id === 5 
+                        ? <img style={{width: '80px'}} src={imgMapfre} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_moto.aseguradora_id === 6 
+                        ? <img style={{width: '80px'}} src={imgMercantil_Andina} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_moto.aseguradora_id === 7 
+                        ? <img style={{width: '80px'}} src={imgVictoria_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_moto.aseguradora_id === 8 
+                        ? <img style={{width: '80px'}} src={imgEXPERTA} alt="imgCompania" /> 
+                        : " "
+                      }
                       consecuencia={ siniestro.consecuencia}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
                       observaciones={siniestro.observaciones}
@@ -187,7 +267,25 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                       tipo_siniestro={"Otro"}
                       cliente={siniestro.cliente_persona_id ? siniestro.clientes_personas_siniestro_otro.nombre+" "+siniestro.clientes_personas_siniestro_otro.apellido : siniestro.clientes_empresas_siniestro_otro.nombre_empresa}
                       poliza={siniestro.polizas_siniestro_otro.numero_poliza}
-                      aseguradora={siniestro.polizas_siniestro_otro.aseguradora_id}
+                      aseguradora={
+                        siniestro.polizas_siniestro_otro.aseguradora_id === 1 
+                        ? <img style={{width: '80px'}} src={imgAllianz} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_otro.aseguradora_id === 2 
+                        ? <img style={{width: '80px'}} src={imgATM} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_otro.aseguradora_id === 3 
+                        ? <img style={{width: '150px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_otro.aseguradora_id === 4 
+                        ? <img style={{width: '80px'}} src={imgHolando_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_otro.aseguradora_id === 5 
+                        ? <img style={{width: '80px'}} src={imgMapfre} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_otro.aseguradora_id === 6 
+                        ? <img style={{width: '80px'}} src={imgMercantil_Andina} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_otro.aseguradora_id === 7 
+                        ? <img style={{width: '80px'}} src={imgVictoria_Seguros} alt="imgCompania" /> 
+                        : siniestro.polizas_siniestro_otro.aseguradora_id === 8 
+                        ? <img style={{width: '80px'}} src={imgEXPERTA} alt="imgCompania" /> 
+                        : " "
+                      }
                       //consecuencia={ siniestro.consecuencia}
                       fecha_denuncia={siniestro.createdAt.slice(0,10)}
                       observaciones={siniestro.observaciones}

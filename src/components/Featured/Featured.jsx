@@ -12,7 +12,7 @@ function Featured({polizas}) {
 
     useEffect(() => {
         let contador = 0;
-        console.log(polizas.data)
+        //console.log(polizas.data)
         polizas.data 
         ? polizas.data.map((poliza) => {
             if (poliza.tipos_polizas.nombre_tipo_poliza === "Auto") {
@@ -24,7 +24,7 @@ function Featured({polizas}) {
 
     useEffect(() => {
         let contador = 0;
-        console.log(polizas.data)
+        //console.log(polizas.data)
         polizas.data 
         ? polizas.data.map((poliza) => {
             if (poliza.tipos_polizas.nombre_tipo_poliza === "Moto") {
@@ -36,7 +36,7 @@ function Featured({polizas}) {
 
     useEffect(() => {
         let contador = 0;
-        console.log(polizas.data)
+        //console.log(polizas.data)
         polizas.data 
         ? polizas.data.map((poliza) => {
             if (poliza.tipos_polizas.nombre_tipo_poliza === "Hogar") {
@@ -48,7 +48,7 @@ function Featured({polizas}) {
 
     useEffect(() => {
         let contador = 0;
-        console.log(polizas.data)
+        //console.log(polizas.data)
         polizas.data 
         ? polizas.data.map((poliza) => {
             if (poliza.tipos_polizas.nombre_tipo_poliza === "Consorcio") {
@@ -60,7 +60,7 @@ function Featured({polizas}) {
 
     useEffect(() => {
         let contador = 0;
-        console.log(polizas.data)
+        //console.log(polizas.data)
         polizas.data 
         ? polizas.data.map((poliza) => {
             if (poliza.tipos_polizas.nombre_tipo_poliza === "Robo" || poliza.tipos_polizas.nombre_tipo_poliza === "Incendio" || poliza.tipos_polizas.nombre_tipo_poliza === "Comercio" || poliza.tipos_polizas.nombre_tipo_poliza === "Accidentes Personales" || poliza.tipos_polizas.nombre_tipo_poliza === "Transporte" || poliza.tipos_polizas.nombre_tipo_poliza === "Cauciones" || poliza.tipos_polizas.nombre_tipo_poliza === "Objetos Personales" || poliza.tipos_polizas.nombre_tipo_poliza === "Embarcaciones" ) {
@@ -117,7 +117,7 @@ function Featured({polizas}) {
             {
                 data.map((dato, index) => {
 
-                    return <span className='referencias' style={{backgroundColor: COLORS[index % COLORS.length]}}>{dato.name+' '+dato.value}</span>
+                    return <span className='referencias' style={{backgroundColor: COLORS[index % COLORS.length]}} key={dato+index}>{dato.name+' '+dato.value}</span>
                 })
             }
         </div>
