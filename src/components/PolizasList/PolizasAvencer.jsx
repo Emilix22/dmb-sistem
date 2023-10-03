@@ -6,7 +6,14 @@ import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import PrintIcon from '@mui/icons-material/Print';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { useReactToPrint } from 'react-to-print';
-
+import imgAllianz from '../../assets/imgAllianz.png'
+import imgATM from '../../assets/imgATM.png'
+import imgFederación_Patronal from '../../assets/imgFederación_Patronal.png'
+import imgHolando_Seguros from '../../assets/imgHolando_Seguros.png'
+import imgMercantil_Andina from '../../assets/imgMercantil_Andina.png'
+import imgVictoria_Seguros from '../../assets/imgVictoria_Seguros.png'
+import imgEXPERTA from '../../assets/imgEXPERTA.svg'
+import imgMapfre from '../../assets/imgMapfre.webp'
 
 function PolizasAvencer({ polizas }) {
 
@@ -52,6 +59,9 @@ function PolizasAvencer({ polizas }) {
               </td>
               <td>
                 <strong>Cobertura</strong>
+              </td>
+              <td>
+                <strong>Aseguradora</strong>
               </td>
               <td>
                 <strong>Vigencia Desde</strong>
@@ -105,10 +115,14 @@ function PolizasAvencer({ polizas }) {
 
                 //console.log(mes)
 
-                let dia = fechaHoyFormato.slice(0, -7)
-                if (dia.length <= 1) {
-                    dia = "0" + dia
-                }
+                let dia;
+        if (fechaHoyFormato.slice(1, -7) === "/") {
+            dia = fechaHoyFormato.slice(0, -8)
+        } else {fechaHoyFormato.slice(0, -7)}
+
+        if (dia.length <= 1) {
+            dia = "0" + dia
+        }
 
                 //console.log(dia)  
 
@@ -139,10 +153,19 @@ function PolizasAvencer({ polizas }) {
 
                 //console.log(mesDiez)
 
-                let diaDiez = menosDiezFormato.slice(0, -7)
-                if (diaDiez.length <= 1) {
-                    diaDiez = "0" + diaDiez
-                }
+                // let diaDiez = menosDiezFormato.slice(0, -7)
+                // if (diaDiez.length <= 1) {
+                //     diaDiez = "0" + diaDiez
+                // }
+
+                let diaDiez;
+        if (menosDiezFormato.slice(1, -7) === "/") {
+            diaDiez = menosDiezFormato.slice(0, -8)
+        } else {menosDiezFormato.slice(0, -7)}
+
+        if (diaDiez.length <= 1) {
+            diaDiez = "0" + diaDiez
+        }
 
                 //console.log(diaDiez)   
       /********************************************************************************************************** */
@@ -152,6 +175,26 @@ function PolizasAvencer({ polizas }) {
                       numero_poliza={poliza.numero_poliza}
                       tipo={poliza.tipos_polizas.nombre_tipo_poliza}
                       cobertura={poliza.cobertura}
+                      //aseguradora={'lalala'}
+                      aseguradora={
+                        poliza.aseguradora_id === 1 
+                        ? <img style={{width: '80px'}} src={imgAllianz} alt="imgCompania" /> 
+                        : poliza.aseguradora_id === 2 
+                        ? <img style={{width: '80px'}} src={imgATM} alt="imgCompania" /> 
+                        : poliza.aseguradora_id === 3 
+                        ? <img style={{width: '150px'}} src={imgFederación_Patronal} alt="imgCompania" /> 
+                        : poliza.aseguradora_id === 4 
+                        ? <img style={{width: '80px'}} src={imgHolando_Seguros} alt="imgCompania" /> 
+                        : poliza.aseguradora_id === 5 
+                        ? <img style={{width: '80px'}} src={imgMapfre} alt="imgCompania" /> 
+                        : poliza.aseguradora_id === 6 
+                        ? <img style={{width: '80px'}} src={imgMercantil_Andina} alt="imgCompania" /> 
+                        : poliza.aseguradora_id === 7 
+                        ? <img style={{width: '80px'}} src={imgVictoria_Seguros} alt="imgCompania" /> 
+                        : poliza.aseguradora_id === 8 
+                        ? <img style={{width: '80px'}} src={imgEXPERTA} alt="imgCompania" /> 
+                        : " "
+                      }
                       vigencia_desde={poliza.vigencia_desde}
                       vigencia_hasta={poliza.vigencia_hasta}
                       cliente={

@@ -78,9 +78,9 @@ function App() {
 
         const fechaHoy = new Date();
         const fechaHoyFormato = fechaHoy.toLocaleDateString()
-
+        //console.log(fechaHoyFormato)
         const fechaParaMenosDiez = new Date()
-        let menosDiez = fechaParaMenosDiez.setDate(fechaParaMenosDiez.getDate()+10)
+        let menosDiez = fechaParaMenosDiez.setDate(fechaParaMenosDiez.getDate()+30)
         const menosDiezFormato = new Date(menosDiez).toLocaleDateString()
 
 
@@ -111,7 +111,11 @@ function App() {
 
         //console.log(mes)
 
-        let dia = fechaHoyFormato.slice(0, -7)
+        let dia;
+        if (fechaHoyFormato.slice(1, -7) === "/") {
+            dia = fechaHoyFormato.slice(0, -8)
+        } else {fechaHoyFormato.slice(0, -7)}
+
         if (dia.length <= 1) {
             dia = "0" + dia
         }
@@ -145,6 +149,16 @@ function App() {
 
     //console.log(mesDiez)
 
+
+    // let diaDiez;
+    //     if (menosDiezFormato.slice(1, -7) === "/") {
+    //         diaDiez = menosDiezFormato.slice(0, -8)
+    //     } else {menosDiezFormato.slice(0, -7)}
+          
+    //     if (diaDiez.length <= 1) {
+    //         diaDiez = "0" + diaDiez
+    //     }
+
     let diaDiez = menosDiezFormato.slice(0, -7)
     if (diaDiez.length <= 1) {
         diaDiez = "0" + diaDiez
@@ -157,8 +171,10 @@ function App() {
 
         polizas.data 
         ? polizas.data.map((poli) => {
+            //console.log(poli.vigencia_hasta)
+            //console.log(año+"-"+mes+"-"+dia)
             if (poli.vigencia_hasta >= año+"-"+mes+"-"+dia && poli.vigencia_hasta <= añoDiez+"-"+mesDiez+"-"+diaDiez) {
-                //console.log(poli.vigencia_hasta)
+                
                 contador += 1;
                 setPolizasVencer(contador)
             } 

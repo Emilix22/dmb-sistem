@@ -6,6 +6,7 @@ function RowTable(props) {
             <td>{props.numero_poliza}</td>
             <td>{props.tipo}</td>
             <td>{props.cobertura}</td>
+            <td>{props.aseguradora}</td>
             <td>{props.vigencia_desde}</td>
             <td>{props.vigencia_hasta}</td>
             <td>{props.cliente}</td>
