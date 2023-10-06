@@ -11,7 +11,7 @@ function ClientePersonaFicha() {
 
   useEffect(() => {
     const loadClient = async () => {
-      const response = await fetch("https://dmb-back.onrender.com/api/clientes/id", {
+      const response = await fetch("http://149.50.132.147:3000/api/clientes/id", {
         method: "POST",
         body: JSON.stringify({
           id: id,
@@ -28,7 +28,7 @@ function ClientePersonaFicha() {
 
   useEffect(() => {
     const loadClient = async () => {
-      const response = await fetch("https://dmb-back.onrender.com/api/polizas/id", {
+      const response = await fetch("http://149.50.132.147:3000/api/polizas/id", {
         method: "POST",
         body: JSON.stringify({
           id: id,

@@ -44,7 +44,7 @@ function App() {
     useEffect(() => {
 
         const loadClients = async () => {
-            const response = await fetch("https://dmb-back.onrender.com/api/clientes")
+            const response = await fetch("http://149.50.132.147:3000/api/clientes")
 
             const info = await response.json();
             setClientesPersonas(info);
@@ -55,7 +55,7 @@ function App() {
     useEffect(() => {
 
         const loadClientsEmpresas = async () => {
-            const response = await fetch("https://dmb-back.onrender.com/api/clientes/empresas")
+            const response = await fetch("http://149.50.132.147:3000/api/clientes/empresas")
 
             const info = await response.json();
             setClientesEmpresas(info);
@@ -66,7 +66,7 @@ function App() {
     useEffect(() => {
 
         const loadPolizas = async () => {
-            const response = await fetch("https://dmb-back.onrender.com/api/polizas")
+            const response = await fetch("http://149.50.132.147:3000/api/polizas")
 
             const info = await response.json();
             setPolizas(info);
@@ -184,7 +184,7 @@ function App() {
     useEffect(() => {
 
         const loadSiniestrosAuto = async () => {
-            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_auto")
+            const response = await fetch("http://149.50.132.147:3000/api/siniestros_auto")
 
             const info = await response.json();
             setSiniestrosAuto(info);
@@ -195,7 +195,7 @@ function App() {
     useEffect(() => {
 
         const loadSiniestrosMoto = async () => {
-            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_moto")
+            const response = await fetch("http://149.50.132.147:3000/api/siniestros_moto")
 
             const info = await response.json();
             setSiniestrosMoto(info);
@@ -206,7 +206,7 @@ function App() {
     useEffect(() => {
 
         const loadSiniestrosHogar = async () => {
-            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_hogar")
+            const response = await fetch("http://149.50.132.147:3000/api/siniestros_hogar")
 
             const info = await response.json();
             setSiniestrosHogar(info);
@@ -217,7 +217,7 @@ function App() {
     useEffect(() => {
 
         const loadSiniestrosConsorcio = async () => {
-            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_consorcio")
+            const response = await fetch("http://149.50.132.147:3000/api/siniestros_consorcio")
 
             const info = await response.json();
             setSiniestrosConsorcio(info);
@@ -228,7 +228,7 @@ function App() {
     useEffect(() => {
 
         const loadSiniestrosOtro = async () => {
-            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_otro")
+            const response = await fetch("http://149.50.132.147:3000/api/siniestros_otro")
 
             const info = await response.json();
             setSiniestrosOtro(info);
