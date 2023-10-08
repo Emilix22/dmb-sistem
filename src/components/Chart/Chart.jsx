@@ -109,8 +109,8 @@ function Chart({clientesPersonas, clientesEmpresas}) {
 
     return (
         <div className="chart">
-            <div className="titleChart">Cantidad de Clientes por Método de Pago</div>
-            <ResponsiveContainer width="100%" height="90%">
+            <div className="titleChart"><strong>Cantidad de Clientes por Método de Pago</strong></div>
+            <ResponsiveContainer width="100%" height="91%">
                 <BarChart
                 width={500}
                 height={200}

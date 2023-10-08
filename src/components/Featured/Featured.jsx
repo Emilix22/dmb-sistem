@@ -10,6 +10,15 @@ function Featured({polizas}) {
     const [poliConsorcio, setPoliConsorcio] = useState(0)
     const [poliOtros, setPoliOtros] = useState(0)
 
+    const [compaAllianz, setCompaAllianz] = useState(0)
+    const [compaAtm, setCompaAtm] = useState(0)
+    const [compaExperta, setCompaExperta] = useState(0)
+    const [compaFederacionPatronal, setCompaFederacionPatronal] = useState(0)
+    const [compaHolando, setCompaHolando] = useState(0)
+    const [compaMapfre, setCompaMapfre] = useState(0)
+    const [compaMercantilAndina, setCompaMercantilAndina] = useState(0)
+    const [compaVictoria, setCompaVictoria] = useState(0)
+
     useEffect(() => {
         let contador = 0;
         //console.log(polizas.data)
@@ -70,6 +79,102 @@ function Featured({polizas}) {
         }) : null
     }, [poliOtros])
 
+    useEffect(() => {
+        let contador = 0;
+        //console.log(polizas.data)
+        polizas.data 
+        ? polizas.data.map((poliza) => {
+            if (poliza.aseguradora_id === 1) {
+                contador +=1
+                setCompaAllianz(contador)
+            }
+        }) : null
+    }, [compaAllianz])
+
+    useEffect(() => {
+        let contador = 0;
+        //console.log(polizas.data)
+        polizas.data 
+        ? polizas.data.map((poliza) => {
+            if (poliza.aseguradora_id === 2) {
+                contador +=1
+                setCompaAtm(contador)
+            }
+        }) : null
+    }, [compaAtm])
+
+    useEffect(() => {
+        let contador = 0;
+        //console.log(polizas.data)
+        polizas.data 
+        ? polizas.data.map((poliza) => {
+            if (poliza.aseguradora_id === 3) {
+                contador +=1
+                setCompaFederacionPatronal(contador)
+            }
+        }) : null
+    }, [compaFederacionPatronal])
+
+    useEffect(() => {
+        let contador = 0;
+        //console.log(polizas.data)
+        polizas.data 
+        ? polizas.data.map((poliza) => {
+            if (poliza.aseguradora_id === 4) {
+                contador +=1
+                setCompaHolando(contador)
+            }
+        }) : null
+    }, [compaHolando])
+
+    useEffect(() => {
+        let contador = 0;
+        //console.log(polizas.data)
+        polizas.data 
+        ? polizas.data.map((poliza) => {
+            if (poliza.aseguradora_id === 5) {
+                contador +=1
+                setCompaMapfre(contador)
+            }
+        }) : null
+    }, [compaMapfre])
+
+    useEffect(() => {
+        let contador = 0;
+        //console.log(polizas.data)
+        polizas.data 
+        ? polizas.data.map((poliza) => {
+            if (poliza.aseguradora_id === 6) {
+                contador +=1
+                setCompaMercantilAndina(contador)
+            }
+        }) : null
+    }, [compaMercantilAndina])
+
+    useEffect(() => {
+        let contador = 0;
+        //console.log(polizas.data)
+        polizas.data 
+        ? polizas.data.map((poliza) => {
+            if (poliza.aseguradora_id === 7) {
+                contador +=1
+                setCompaVictoria(contador)
+            }
+        }) : null
+    }, [compaVictoria])
+
+    useEffect(() => {
+        let contador = 0;
+        //console.log(polizas.data)
+        polizas.data 
+        ? polizas.data.map((poliza) => {
+            if (poliza.aseguradora_id === 8) {
+                contador +=1
+                setCompaExperta(contador)
+            }
+        }) : null
+    }, [compaExperta])
+
     const data = [
         { name: 'Auto', value: poliAutos },
         { name: 'Moto', value: poliMotos },
@@ -77,8 +182,20 @@ function Featured({polizas}) {
         { name: 'Consorcio', value: poliConsorcio },
         { name: 'Otros', value: poliOtros },
     ];
+
+    const dataCompa = [
+        { name: 'Allianz', value: compaAllianz },
+        { name: 'ATM', value: compaAtm },
+        { name: 'Experta', value: compaExperta },
+        { name: 'Federación Patronal', value: compaFederacionPatronal },
+        { name: 'Holando', value: compaHolando },
+        { name: 'Mapfre', value: compaMapfre },
+        { name: 'Mercantil Andina', value: compaMercantilAndina },
+        { name: 'Victoria', value: compaVictoria },
+    ];
       
-    const COLORS = ['#3E77B6', '#26798E', '#63CAA7', '#FFC172', '#FFE383'];
+    const COLORS = ['#D22127', '#28A24B', '#293A94', '#F57E1F', '#92278F'];
+    const COLORSCOMP = ['#D22127', '#28A24B', '#293A94', '#F57E1F', '#92278F', '#672D93', '#149A9B', '#EF5124'];
       
     const RADIAN = Math.PI / 180;
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
@@ -95,8 +212,8 @@ function Featured({polizas}) {
 
     return (
         <div className="featured">
-            <div className="titleFeatured">Pólizas por tipo</div>
-            <ResponsiveContainer width="100%" height="91%">
+            <div className="titleFeatured"><strong>Pólizas por Tipo</strong></div>
+            <ResponsiveContainer width="100%" height="38%">
                 <PieChart width="70%" height="70%" >
                     <Pie
                         data={data}
@@ -104,7 +221,7 @@ function Featured({polizas}) {
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={80}
+                        outerRadius={100}
                         fill="#8884d8"
                         dataKey="value"
                     >
@@ -114,12 +231,44 @@ function Featured({polizas}) {
                     </Pie>
                 </PieChart>
             </ResponsiveContainer>
-            {
+            <div className='refecontain'>
+               {
                 data.map((dato, index) => {
 
                     return <span className='referencias' style={{backgroundColor: COLORS[index % COLORS.length]}} key={dato+index}>{dato.name+' '+dato.value}</span>
                 })
-            }
+                } 
+            </div>
+            
+            
+        <div className="titleFeaturedC"><strong>Pólizas por Compañia</strong></div>
+            <ResponsiveContainer width="100%" height="38%">
+                <PieChart width="70%" height="70%" >
+                    <Pie
+                        data={dataCompa}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        label={renderCustomizedLabel}
+                        outerRadius={100}
+                        fill="#8884d8"
+                        dataKey="value"
+                    >
+                    {dataCompa.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORSCOMP[index % COLORSCOMP.length]} />
+                    ))}
+                    </Pie>
+                </PieChart>
+            </ResponsiveContainer>
+            <div className='refecontain'>
+               {
+                dataCompa.map((dato, index) => {
+
+                    return <span className='referencias' style={{backgroundColor: COLORSCOMP[index % COLORSCOMP.length]}} key={dato+index}>{dato.name+' '+dato.value}</span>
+                })
+            } 
+            </div>
+            
         </div>
     )
 }
