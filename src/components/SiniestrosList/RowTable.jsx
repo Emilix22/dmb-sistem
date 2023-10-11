@@ -1,8 +1,14 @@
 import React from 'react'
 
 function RowTable(props) {
+
+    const handleClick = (event) => {
+        console.log(props.siniestro)
+    }
+
+
     return (
-       <tr className="rowTable">
+       <tr className="rowTable" onClick={handleClick}>
             <td>{props.fecha}</td>
             <td>{props.hora}</td>
             <td>{props.tipo_siniestro}</td>

@@ -88,6 +88,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                 ? siniestrosAuto.data.map((siniestro, index) => {
                   return (
                     <RowTable
+                      siniestro={siniestro}
                       fecha={siniestro.fecha_siniestro}
                       hora={siniestro.hora_siniestro}
                       tipo_siniestro={"Auto"}
@@ -140,6 +141,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
               
                   return (
                     <RowTable
+                      siniestro={siniestro}
                       fecha={siniestro.fecha_siniestro}
                       hora={siniestro.hora_siniestro}
                       tipo_siniestro={"Hogar"}
@@ -187,6 +189,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
               
                   return (
                     <RowTable
+                      siniestro={siniestro}
                       fecha={siniestro.fecha_siniestro}
                       hora={siniestro.hora_siniestro}
                       tipo_siniestro={"Consorcio"}
@@ -224,6 +227,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                 siniestrosMoto.data ? siniestrosMoto.data.map((siniestro, index) => {
                   return (
                     <RowTable
+                      siniestro={siniestro}
                       fecha={siniestro.fecha_siniestro}
                       hora={siniestro.hora_siniestro}
                       tipo_siniestro={"Moto"}
@@ -262,6 +266,7 @@ function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConso
                 ? siniestrosOtro.data.map((siniestro, index) => {
                   return (
                     <RowTable
+                      siniestro={siniestro}
                       fecha={siniestro.fecha_siniestro}
                       hora={siniestro.hora_siniestro}
                       tipo_siniestro={"Otro"}

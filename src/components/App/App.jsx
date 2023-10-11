@@ -111,11 +111,7 @@ function App() {
 
         //console.log(mes)
 
-        let dia;
-        if (fechaHoyFormato.slice(1, -7) === "/") {
-            dia = fechaHoyFormato.slice(0, -8)
-        } else {fechaHoyFormato.slice(0, -7)}
-
+        let dia = fechaHoyFormato.slice(0, -8)
         if (dia.length <= 1) {
             dia = "0" + dia
         }
@@ -149,17 +145,7 @@ function App() {
 
     //console.log(mesDiez)
 
-
-    // let diaDiez;
-    //     if (menosDiezFormato.slice(1, -7) === "/") {
-    //         diaDiez = menosDiezFormato.slice(0, -8)
-    //     } else {menosDiezFormato.slice(0, -7)}
-          
-    //     if (diaDiez.length <= 1) {
-    //         diaDiez = "0" + diaDiez
-    //     }
-
-    let diaDiez = menosDiezFormato.slice(0, -7)
+    let diaDiez = menosDiezFormato.slice(0, -8)
     if (diaDiez.length <= 1) {
         diaDiez = "0" + diaDiez
     }
