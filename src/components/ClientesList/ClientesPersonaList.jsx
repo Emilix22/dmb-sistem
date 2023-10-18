@@ -7,6 +7,7 @@ import PrintIcon from '@mui/icons-material/Print';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { useReactToPrint } from 'react-to-print';
+import { Link } from "react-router-dom";
 
 function ClientesPersonaList() {
 
@@ -28,14 +29,21 @@ function ClientesPersonaList() {
           loadClients()
     }, [])
 
+    //.toLocaleString("es-ES" , {day: "2-digit", month: "long", year: "numeric"});
+    const hoy = new Date()
+    const hora = hoy.getHours();
+    const min = hoy.getMinutes();
+    const seg = hoy.getSeconds();
     const tablaClientesPersonas = useRef(null);
     return (
         <div className='container'>
           <div className='btn-excel'>
-          <button className='btn-crear'>Agregar Cliente<PersonAddIcon /></button>
+            <Link to={'/clientes_personas_add'}>
+              <button className='btn-crear'>Agregar Cliente<PersonAddIcon /></button>
+            </Link>
           <button className='btn-buscar'>Buscar Cliente<PersonSearchIcon /></button>
             <DownloadTableExcel
-              filename="Listado Clientes Personas"
+              filename={"Listado Clientes Personas"+" "+hoy.toLocaleString("es-ES" , {day: "2-digit", month: "long", year: "numeric"})+"-"+hora+":"+min+":"+seg}
               sheet="Clientes Personas"
               currentTableRef={tablaClientesPersonas.current}
               >

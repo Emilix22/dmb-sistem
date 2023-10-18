@@ -213,7 +213,7 @@ function Featured({polizas}) {
     return (
         <div className="featured">
             <div className="titleFeatured"><strong>Pólizas por Tipo</strong></div>
-            <ResponsiveContainer width="100%" height="38%">
+            <ResponsiveContainer width="100%" height="37%">
                 <PieChart width="70%" height="70%" >
                     <Pie
                         data={data}
@@ -221,7 +221,7 @@ function Featured({polizas}) {
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={100}
+                        outerRadius={95}
                         fill="#8884d8"
                         dataKey="value"
                     >
@@ -242,7 +242,7 @@ function Featured({polizas}) {
             
             
         <div className="titleFeaturedC"><strong>Pólizas por Compañia</strong></div>
-            <ResponsiveContainer width="100%" height="38%">
+            <ResponsiveContainer width="100%" height="37%">
                 <PieChart width="70%" height="70%" >
                     <Pie
                         data={dataCompa}
@@ -250,7 +250,7 @@ function Featured({polizas}) {
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={100}
+                        outerRadius={95}
                         fill="#8884d8"
                         dataKey="value"
                     >

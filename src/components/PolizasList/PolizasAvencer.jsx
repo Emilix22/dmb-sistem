@@ -1,11 +1,6 @@
 import React, { useRef } from 'react'
 import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable';
-import { DownloadTableExcel } from 'react-export-table-to-excel';
-import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
-import PrintIcon from '@mui/icons-material/Print';
-import PersonSearchIcon from '@mui/icons-material/PersonSearch';
-import { useReactToPrint } from 'react-to-print';
 import imgAllianz from '../../assets/imgAllianz.png'
 import imgATM from '../../assets/imgATM.png'
 import imgFederación_Patronal from '../../assets/imgFederación_Patronal.png'
@@ -14,6 +9,11 @@ import imgMercantil_Andina from '../../assets/imgMercantil_Andina.png'
 import imgVictoria_Seguros from '../../assets/imgVictoria_Seguros.png'
 import imgEXPERTA from '../../assets/imgEXPERTA.svg'
 import imgMapfre from '../../assets/imgMapfre.webp'
+import { DownloadTableExcel } from 'react-export-table-to-excel';
+import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
+import PrintIcon from '@mui/icons-material/Print';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import { useReactToPrint } from 'react-to-print';
 
 function PolizasAvencer({ polizas }) {
 
@@ -49,7 +49,7 @@ function PolizasAvencer({ polizas }) {
           width="100%"
           cellSpacing="0"
           >
-          <thead>
+          <thead >
             <tr>
               <td>
                 <strong>N° Póliza</strong>
@@ -79,7 +79,7 @@ function PolizasAvencer({ polizas }) {
 
               polizas 
               ? polizas.data.map((poliza, index) => {
-      /******************************************************************************************************* */             
+        /******************************************************************************************************* */             
               const fechaHoy = new Date();
               const fechaHoyFormato = fechaHoy.toLocaleDateString()
 
@@ -156,7 +156,7 @@ function PolizasAvencer({ polizas }) {
                 }
 
                 //console.log(diaDiez)   
-      /********************************************************************************************************** */
+        /********************************************************************************************************** */
                 if (poliza.vigencia_hasta >= año+"-"+mes+"-"+dia && poliza.vigencia_hasta <= añoDiez+"-"+mesDiez+"-"+diaDiez) {
                   return (
                     <RowTable
@@ -197,7 +197,7 @@ function PolizasAvencer({ polizas }) {
                   );
                 }
                   
-                }) : ""
+                }) : <tr> ⌛ Cargando...</tr>
               }
             </tbody>  
       </table>     

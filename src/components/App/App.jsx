@@ -14,6 +14,7 @@ import PolizasList from "../PolizasList/PolizasList";
 import ClientesTodosList from "../ClientesList/ClientesTodosList";
 import Cookie from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
+import ClientesAdd from "../ClientesList/ClientesAdd";
 
 
 function App() {
@@ -265,6 +266,10 @@ function App() {
 
                     <Route path="/clientes_personas_list" element={
                         usuario ? <ClientesPersonaList /> : <Login setUsuario={setUsuario} />
+                    } />
+
+                    <Route path="/clientes_personas_add" element={
+                        usuario ? <ClientesAdd /> : <Login setUsuario={setUsuario} />
                     } />
                 
                     <Route path="/polizas_a_vencer" element={

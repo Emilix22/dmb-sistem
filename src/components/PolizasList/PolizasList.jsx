@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable';
+import { DownloadTableExcel } from 'react-export-table-to-excel';
+import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
+import PrintIcon from '@mui/icons-material/Print';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import { useReactToPrint } from 'react-to-print';
 import imgAllianz from '../../assets/imgAllianz.png'
 import imgATM from '../../assets/imgATM.png'
 import imgFederación_Patronal from '../../assets/imgFederación_Patronal.png'
@@ -11,8 +16,33 @@ import imgEXPERTA from '../../assets/imgEXPERTA.svg'
 import imgMapfre from '../../assets/imgMapfre.webp'
 
 function PolizasList({ polizas }) {
+
+    const handlePrint = useReactToPrint({
+        content: () => tablaPolizas.current,
+        documentTitle: 'Pólizas',
+        // onAfterPrint: () => alert('Print success')
+      })
+    
+      const tablaPolizas = useRef(null);
+
     return (
-                <div className="listado-tabla">
+            <div className='container'>
+                <div className='btn-excel'>
+        <button className='btn-buscar'>Buscar<PersonSearchIcon /></button>
+        <DownloadTableExcel
+          filename="Pólizas"
+          sheet="Pólizas"
+          currentTableRef={tablaPolizas.current}
+          >
+
+          <button className='excel-button'>Excel <SimCardDownloadIcon /></button>
+        </DownloadTableExcel>
+
+        <button className='btn-pdf' onClick={handlePrint}><PrintIcon /> / PDF <SimCardDownloadIcon /></button>
+
+      </div>
+                
+                <div className="listado-tabla" ref={tablaPolizas} style={{width: '98%'}}>
                     <h3>Listado de Pólizas</h3>
                     <table
                     className="table table-bordered"
@@ -88,6 +118,7 @@ function PolizasList({ polizas }) {
                         </tbody>  
                     </table>     
                 </div>
+            </div>    
     )
 }
 

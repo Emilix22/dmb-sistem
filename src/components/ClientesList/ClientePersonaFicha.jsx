@@ -52,7 +52,7 @@ function ClientePersonaFicha() {
         <div className='listado-tabla'>
           <h2>{cliente.data.nombre +" "+cliente.data.apellido}</h2>
           <div className='inputs'>
-            <div className="form-group-1 form-group-4">
+            <div className="form-group-1 form-group-2">
               <label htmlFor="dni">DNI</label>
               <input
                   type="text"
@@ -62,7 +62,7 @@ function ClientePersonaFicha() {
                   disabled
               />
             </div>
-            <div className="form-group-1 form-group-4">
+            <div className="form-group-1 form-group-2">
               <label htmlFor="email">Email</label>
               <input
                   type="text"
@@ -72,7 +72,7 @@ function ClientePersonaFicha() {
                   disabled
               />
             </div>
-            <div className="form-group-1 form-group-4">
+            <div className="form-group-1 form-group-2">
               <label htmlFor="celular">Celular</label>
               <input
                   type="text"
@@ -82,7 +82,7 @@ function ClientePersonaFicha() {
                   disabled
               />
             </div>
-            <div className="form-group-1 form-group-4">
+            <div className="form-group-1 form-group-2">
               <label htmlFor="telefono_fijo">Teléfono Fijo</label>
               <input
                   type="text"
@@ -102,7 +102,7 @@ function ClientePersonaFicha() {
                   disabled
               />
             </div>
-            <div className="form-group-1 form-group-4">
+            <div className="form-group-1 form-group-2">
               <label htmlFor="metodo_pago">Método de pago</label>
               <input
                   type="text"
@@ -112,7 +112,7 @@ function ClientePersonaFicha() {
                   disabled
               />
             </div>
-            <div className="form-group-1 form-group-4">
+            <div className="form-group-1 form-group-2">
               <label htmlFor="vendedor">Vendedor</label>
               <input
                   type="text"

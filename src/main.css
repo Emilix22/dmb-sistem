@@ -3,3 +3,36 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+.form-group-1 {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 10px;
+    min-height: 50px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .clienteAdd_container form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (min-width: 769px) {
+
+    .form-group-2 {
+      width: 48%;
+    }
+  
+    .form-group-3 {
+      width: 33%;
+    }
+  
+    .form-group-4 {
+      width: 22%;
+    }
+  }

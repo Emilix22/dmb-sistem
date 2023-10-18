@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable'
-// import { DownloadTableExcel } from 'react-export-table-to-excel';
-// import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
-// import PrintIcon from '@mui/icons-material/Print';
-// import PersonAddIcon from '@mui/icons-material/PersonAdd';
-// import PersonSearchIcon from '@mui/icons-material/PersonSearch';
-// import { useReactToPrint } from 'react-to-print';
+import { DownloadTableExcel } from 'react-export-table-to-excel';
+import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
+import PrintIcon from '@mui/icons-material/Print';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
+import { useReactToPrint } from 'react-to-print';
 
 function ClientesTodosList() {
 
@@ -34,9 +34,32 @@ function ClientesTodosList() {
           };
           loadClientsEmpresas()
     }, []);
+
+    const handlePrint = useReactToPrint({
+      content: () => tablaClientes.current,
+      documentTitle: 'Clientes',
+      // onAfterPrint: () => alert('Print success')
+    })
+  
+    const tablaClientes = useRef(null);
+
     return (
-        <div>
-           <div className="listado-tabla" /*ref={tablaClientesPersonas}*/ style={{width: '98%'}}>
+        <div className='container'>
+               <div className='btn-excel'>
+        <button className='btn-buscar'>Buscar<PersonSearchIcon /></button>
+        <DownloadTableExcel
+          filename="Clientes"
+          sheet="Clientes"
+          currentTableRef={tablaClientes.current}
+          >
+
+          <button className='excel-button'>Excel <SimCardDownloadIcon /></button>
+        </DownloadTableExcel>
+
+        <button className='btn-pdf' onClick={handlePrint}><PrintIcon /> / PDF <SimCardDownloadIcon /></button>
+
+      </div>
+           <div className="listado-tabla" ref={tablaClientes} style={{width: '98%'}}>
           <h3>Listado de todos los Clientes (Personas: {clientesPersonas.meta.total} Empresas: {clientesEmpresas.meta.total})</h3>
           <table
             className="table table-bordered"

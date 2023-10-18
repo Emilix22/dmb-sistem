@@ -7,17 +7,6 @@
   width: 100%;
 }
 
-.form-group-1 {
-    width: 95%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    padding: 10px;
-    min-height: 50px;
-    flex-direction: column;
-    text-align: center;
-  }
 input, select {
     width: 100%;
     height: 40px;
@@ -28,18 +17,11 @@ input, select {
     text-align: left;
     border-radius: 6px;
   }
+.clienteAdd_container button {
+  margin: auto;
+}
 
-  @media (min-width: 769px) {
-
-  .form-group-2 {
-    width: 48%;
-  }
-
-  .form-group-3 {
-    width: 33%;
-  }
-
-  .form-group-4 {
-    width: 22%;
-  }
+.clienteAdd_container h3 {
+  text-align: center;
+  padding-top: 10px;
 }
