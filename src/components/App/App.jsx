@@ -9,6 +9,7 @@ import PolizasAvencer from "../PolizasList/PolizasAvencer";
 import SiniestrosTodosList from "../SiniestrosList/SiniestrosTodosList";
 import SiniestrosTipos from "../SiniestrosList/SiniestrosTipos";
 import ClientePersonaFicha from "../ClientesList/ClientePersonaFicha";
+import ClienteEmpresaFicha from "../ClientesList/ClienteEmpresaFicha";
 import Login from "../Login/Login";
 import PolizasList from "../PolizasList/PolizasList";
 import ClientesTodosList from "../ClientesList/ClientesTodosList";
@@ -296,6 +297,10 @@ function App() {
                     
                     <Route path={"/cliente_persona/ficha/:id"} element={
                         usuario ? <ClientePersonaFicha />  : <Login setUsuario={setUsuario} />
+                    } />
+
+                    <Route path={"/cliente_empresa/ficha/:id"} element={
+                        usuario ? <ClienteEmpresaFicha />  : <Login setUsuario={setUsuario} />
                     } />
 
                 </Routes>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './ClientePersonaFicha.css'
 
-function ClientePersonaFicha() {
+function ClienteEmpresaFicha() {
 
   const [cliente, setCliente] = useState();
   const [polizas, setPolizas] = useState();
@@ -11,10 +11,10 @@ function ClientePersonaFicha() {
 
   useEffect(() => {
     const loadClient = async () => {
-      const response = await fetch("https://dmb-back.online:3000/api/clientes/id", {
+      const response = await fetch("https://dmb-back.online:3000/api/clientes/empresa_id", {
         method: "POST",
         body: JSON.stringify({
-          id: id,
+          empresa_id: id,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function ClientePersonaFicha() {
 
   useEffect(() => {
     const loadPolizas = async () => {
-      const response = await fetch("https://dmb-back.online:3000/api/polizas/porCliente", {
+      const response = await fetch("https://dmb-back.online:3000/api/polizas/porEmpresa", {
         method: "POST",
         body: JSON.stringify({
           id: id,
@@ -39,26 +39,28 @@ function ClientePersonaFicha() {
       });
       const info = await response.json();
       setPolizas(info);
+      console.log(info)
     };
     loadPolizas()
   }, []);
-{
-  polizas ? console.log(polizas) : null
-}
+
+  {
+    polizas ? console.log(polizas) : null
+  }
   return (
     <div>
       {
         cliente && polizas ?
         <div className='listado-tabla'>
-          <h2>{cliente.data.nombre ? cliente.data.nombre+" "+cliente.data.apellido : cliente.data.nombre_empresa}</h2>
+          <h2>{cliente.data.nombre_empresa}</h2>
           <div className='inputs'>
             <div className="form-group-1 form-group-3">
-              <label htmlFor="dni">DNI</label>
+              <label htmlFor="cuit">CUIT</label>
               <input
                   type="text"
-                  name="dni"
-                  id="dni"
-                  value={cliente.data.dni}
+                  name="cuit"
+                  id="cuit"
+                  value={cliente.data.cuit}
                   disabled
               />
             </div>
@@ -72,6 +74,16 @@ function ClientePersonaFicha() {
                   disabled
               />
             </div>
+            <div className="form-group-1 form-group-3">
+              <label htmlFor="nombre_contacto">CONTACTO</label>
+              <input
+                  type="text"
+                  name="nombre_contacto"
+                  id="nombre_contacto"
+                  value={cliente.data.nombre_contacto+" (DNI: "+cliente.data.dni_contacto+")"}
+                  disabled
+              />
+            </div>  
             <div className="form-group-1 form-group-3">
               <label htmlFor="celular">Celular</label>
               <input
@@ -108,7 +120,7 @@ function ClientePersonaFicha() {
                   type="text"
                   name="metodo_pago"
                   id="metodo_pago"
-                  value={cliente.data.metodos_pagos_cliente_persona.nombre_metodo_pago}
+                  value={cliente.data.metodos_pagos_cliente_empresa.nombre_metodo_pago}
                   disabled
               />
             </div>
@@ -118,7 +130,7 @@ function ClientePersonaFicha() {
                   type="text"
                   name="vendedor"
                   id="vendedor"
-                  value={cliente.data.vendedores_cliente_persona.nombre+" "+cliente.data.vendedores_cliente_persona.apellido}
+                  value={cliente.data.vendedores_cliente_empresa.nombre+" "+cliente.data.vendedores_cliente_empresa.apellido}
                   disabled
               />
             </div>
@@ -166,7 +178,7 @@ function ClientePersonaFicha() {
                   
                 })
               }
-            </div>    
+            </div>
           </div>
         </div>
         : null
@@ -175,4 +187,4 @@ function ClientePersonaFicha() {
   )
 }
 
-export default ClientePersonaFicha
+export default ClienteEmpresaFicha

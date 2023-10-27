@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable'
+import RowTableEmpresa from './RowTableEmpresa'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import PrintIcon from '@mui/icons-material/Print';
@@ -109,7 +110,7 @@ function ClientesTodosList() {
               {
                 clientesEmpresas.data ? clientesEmpresas.data.map((cliente, index) => {
                   return (
-                    <RowTable
+                    <RowTableEmpresa
                       id={cliente.id_cliente_empresa}
                       nombre={cliente.nombre_empresa}
                       dni={cliente.cuit}
