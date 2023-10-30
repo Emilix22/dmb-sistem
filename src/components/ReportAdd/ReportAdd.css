@@ -1,0 +1,74 @@
+
+.reportAdd_container {
+    background-color: white;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    /* margin-top: 10px;
+    margin-left: 10px; */
+    margin: 10px auto 0px auto;
+  }
+
+.reportAdd_container h3 {
+  text-align: center;
+  padding-top: 10px;
+}
+.reportAdd_container form {
+  width: 100%;
+}
+input {
+  width: 100%;
+  height: 40px;
+  border: solid 1px #e3e3e3;
+  background-color: #fdfdfd;
+  outline: none;
+  padding-left: 5px;
+  text-align: left;
+  border-radius: 6px;
+}
+
+.btn-Upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: #002a7c;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+    gap: 5px;
+    margin: auto;
+}
+
+.tabla_container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+td, th {
+  padding: 1px;
+  font-size: 12px;
+  border: 1px solid #999;
+  text-align: left;
+}
+tr:hover {
+  background-color: #dfe9f5;
+  cursor: pointer;
+}
+
+
+@media (min-width: 769px) {
+  .reportAdd_container form {
+    width: 70%;
+  }
+}

@@ -16,6 +16,7 @@ import ClientesTodosList from "../ClientesList/ClientesTodosList";
 import Cookie from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 import ClientesAdd from "../ClientesList/ClientesAdd";
+import ReportAdd from "../ReportAdd/ReportAdd";
 
 
 function App() {
@@ -301,6 +302,10 @@ function App() {
 
                     <Route path={"/cliente_empresa/ficha/:id"} element={
                         usuario ? <ClienteEmpresaFicha />  : <Login setUsuario={setUsuario} />
+                    } />
+
+                    <Route path={"/cargar_reporte"} element={
+                        usuario ? <ReportAdd />  : <Login setUsuario={setUsuario} />
                     } />
 
                 </Routes>

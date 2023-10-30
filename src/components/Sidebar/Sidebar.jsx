@@ -6,7 +6,8 @@ import GroupIcon from '@mui/icons-material/Group';
 import StoreIcon from '@mui/icons-material/Store';
 //import CreditCardIcon from '@mui/icons-material/CreditCard';
 //import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import QueryStatsIcon from '@mui/icons-material/QueryStats';
+//import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
@@ -77,10 +78,12 @@ function Sidebar({ usuario, setUsuario }) {
 
                     <p className="title">UTILIDADES</p>
 
-                    <li>
-                        <QueryStatsIcon className="icon" />
-                        <span>Estadísticas</span>
-                    </li>
+                    <Link to={"/cargar_reporte"}>
+                        <li>
+                            <UploadFileIcon className="icon" />
+                            <span>Cargar Reporte</span>
+                        </li>
+                    </Link>
 
                     <li>
                         <NotificationsActiveIcon className="icon" />
