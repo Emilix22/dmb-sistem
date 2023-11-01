@@ -66,9 +66,51 @@ tr:hover {
   cursor: pointer;
 }
 
+.noMostrar {
+  display: none;
+}
+
+.cards_add_report {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 5px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.cards_add_report article {
+  display: flex;
+  text-align: center;
+  box-shadow: 10px 15px 10px -15px #798280;
+  border: solid 1px #002a7c;
+  border-radius: 5px;
+  width: 90%;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards_add_report article:hover {
+  transform: scale(1.1);
+}
+
+.cards_add_report article .imagen {
+  width: 100%;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
 
 @media (min-width: 769px) {
   .reportAdd_container form {
     width: 70%;
+  }
+  .reportAdd_container article {
+    width: 20%;
   }
 }

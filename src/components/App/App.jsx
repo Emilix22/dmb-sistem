@@ -17,6 +17,7 @@ import Cookie from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 import ClientesAdd from "../ClientesList/ClientesAdd";
 import ReportAdd from "../ReportAdd/ReportAdd";
+import AddMercantilAndina from "../ReportAdd/AddMercantilAndina";
 
 
 function App() {
@@ -306,6 +307,10 @@ function App() {
 
                     <Route path={"/cargar_reporte"} element={
                         usuario ? <ReportAdd />  : <Login setUsuario={setUsuario} />
+                    } />
+
+                    <Route path={"/add_mercantil_andina"} element={
+                        usuario ? <AddMercantilAndina />  : <Login setUsuario={setUsuario} />
                     } />
 
                 </Routes>
