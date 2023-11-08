@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable'
 import imgAllianz from '../../assets/imgAllianz.png'
@@ -15,9 +15,70 @@ import PrintIcon from '@mui/icons-material/Print';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { useReactToPrint } from 'react-to-print';
 
-function SiniestrosTodosList({ siniestrosAuto,  siniestrosHogar, siniestrosConsorcio, siniestrosMoto, siniestrosOtro }) {
+function SiniestrosTodosList() {
   
+  const [siniestrosAuto, setSiniestrosAuto] = useState({data:""});
+  const [siniestrosMoto, setSiniestrosMoto] = useState({data:""});
+  const [siniestrosHogar, setSiniestrosHogar] = useState({data:""});
+  const [siniestrosConsorcio, setSiniestrosConsorcio] = useState({data:""});
+  const [siniestrosOtro, setSiniestrosOtro] = useState({data:""});
+
   const tablaSiniestrosTodos = useRef(null);
+
+  useEffect(() => {
+
+      const loadSiniestrosAuto = async () => {
+          const response = await fetch("https://dmb-back.online:3000/api/siniestros_auto")
+
+          const info = await response.json();
+          setSiniestrosAuto(info);
+        };
+        loadSiniestrosAuto()
+  }, [])
+
+  useEffect(() => {
+
+      const loadSiniestrosMoto = async () => {
+          const response = await fetch("https://dmb-back.online:3000/api/siniestros_moto")
+
+          const info = await response.json();
+          setSiniestrosMoto(info);
+        };
+        loadSiniestrosMoto()
+  }, [])
+
+  useEffect(() => {
+
+      const loadSiniestrosHogar = async () => {
+          const response = await fetch("https://dmb-back.online:3000/api/siniestros_hogar")
+
+          const info = await response.json();
+          setSiniestrosHogar(info);
+        };
+        loadSiniestrosHogar()
+  }, [])
+
+  useEffect(() => {
+
+      const loadSiniestrosConsorcio = async () => {
+          const response = await fetch("https://dmb-back.online:3000/api/siniestros_consorcio")
+
+          const info = await response.json();
+          setSiniestrosConsorcio(info);
+        };
+        loadSiniestrosConsorcio()
+  }, [])
+
+  useEffect(() => {
+
+      const loadSiniestrosOtro = async () => {
+          const response = await fetch("https://dmb-back.online:3000/api/siniestros_otro")
+
+          const info = await response.json();
+          setSiniestrosOtro(info);
+        };
+        loadSiniestrosOtro()
+  }, [])
 
   const handlePrint = useReactToPrint({
     content: () => tablaSiniestrosTodos.current,

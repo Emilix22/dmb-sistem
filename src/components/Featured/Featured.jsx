@@ -241,7 +241,7 @@ function Featured({polizas}) {
             </div>
             
             
-        <div className="titleFeaturedC"><strong>Pólizas por Compañia</strong></div>
+        <div className="titleFeaturedC"><strong>Pólizas por Compañía</strong></div>
             <ResponsiveContainer width="100%" height="37%">
                 <PieChart width="70%" height="70%" >
                     <Pie

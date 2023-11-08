@@ -1,6 +1,4 @@
 import React, { useRef, useState } from 'react'
-import * as XLSX from 'xlsx'
-import UploadFileIcon from '@mui/icons-material/UploadFile';
 import './ReportAdd.css'
 import { Link } from "react-router-dom";
 import imgAllianz from '../../assets/imgAllianz.png'

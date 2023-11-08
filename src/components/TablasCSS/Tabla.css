@@ -72,3 +72,6 @@
     background-color: #dfe9f5;
     cursor: pointer;
   }
+  .nombre_aseguradora {
+    display: none;
+  }

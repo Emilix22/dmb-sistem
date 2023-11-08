@@ -276,7 +276,7 @@ function App() {
                     } />
                 
                     <Route path="/polizas_a_vencer" element={
-                        usuario ? <PolizasAvencer polizas={polizas} /> : <Login setUsuario={setUsuario} />
+                        usuario ? <PolizasAvencer /> : <Login setUsuario={setUsuario} />
                     } /> 
                     
                     <Route path="/siniestros_todos_list" element={
@@ -290,7 +290,7 @@ function App() {
                     } />
 
                     <Route path="/polizas_todas_list" element={
-                        usuario ? <PolizasList polizas={polizas} /> : <Login setUsuario={setUsuario} />
+                        usuario ? <PolizasList /> : <Login setUsuario={setUsuario} />
                     } />
                         
                     <Route path="/siniestros_tipos" element={

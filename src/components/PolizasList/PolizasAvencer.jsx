@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import '../TablasCSS/Tabla.css'
 import RowTable from './RowTable';
 import imgAllianz from '../../assets/imgAllianz.png'
@@ -15,7 +15,21 @@ import PrintIcon from '@mui/icons-material/Print';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import { useReactToPrint } from 'react-to-print';
 
-function PolizasAvencer({ polizas }) {
+function PolizasAvencer() {
+
+  const [polizas, setPolizas] = useState();
+  const tablaPolizasVencer = useRef(null);
+
+  useEffect(() => {
+
+    const loadPolizas = async () => {
+        const response = await fetch("https://dmb-back.online:3000/api/polizas")
+
+        const info = await response.json();
+        setPolizas(info);
+      };
+      loadPolizas()
+}, [])
 
   const handlePrint = useReactToPrint({
     content: () => tablaPolizasVencer.current,
@@ -23,7 +37,7 @@ function PolizasAvencer({ polizas }) {
     // onAfterPrint: () => alert('Print success')
   })
 
-  const tablaPolizasVencer = useRef(null);
+  
 
   return (
     <div className='container'>

@@ -61,7 +61,7 @@ function ClientesTodosList() {
 
       </div>
            <div className="listado-tabla" ref={tablaClientes} style={{width: '98%'}}>
-          <h3>Listado de todos los Clientes (Personas: {clientesPersonas.meta.total} Empresas: {clientesEmpresas.meta.total})</h3>
+          <h3>Listado de todos los Clientes (Personas: {clientesPersonas.meta.total} / Empresas: {clientesEmpresas.meta.total})</h3>
           <table
             className="table table-bordered"
             id="dataTable"

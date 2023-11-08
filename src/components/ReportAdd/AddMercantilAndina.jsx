@@ -16,8 +16,6 @@ function ReportAdd() {
 
     })
 
-    //const formData1 = new FormData();
-
     const [state, setState] = useState({
         woorksheets: [],
         filas: [],
@@ -120,9 +118,70 @@ function ReportAdd() {
             }   
 
         })
-        console.log(datosCargaDB)
-        
+
+        datosCargaDB.altas.map((alta, index) => {
+            if (String(alta.DNI_CUIT).length === 8) {
+
+                const aseguradoSeparado = alta.ASEGURADO.split(' - ');
+
+                fetch("http://localhost:3000/api/clientes/crear", {
+                    
+                    method: "POST",
+                    body: JSON.stringify({
+                        nombre: aseguradoSeparado[0], // sacar solo nombre
+                        apellido: aseguradoSeparado[0], // sacar solo apellido
+                        dni: String(alta.DNI_CUIT),
+                        email: alta.EMAIL ? String(alta.EMAIL) : 'elmail@elmail.com',
+                        celular: alta.CELULAR ? String(alta.CELULAR) : '1111111111',
+                        // tarjeta_circula: img,
+                        telefono_fijo: '',
+                        calle: aseguradoSeparado[1], // sacar la calle
+                        altura: '123',// sacar el numero
+                        piso: '',// sacar el piso
+                        departamento: '',// sacar depto
+                        cp: '',// sacar cp
+                        localidad: alta.UBICACION,
+                        provincia: alta.UBICACION,
+                        metodo_pago_id: '1',
+                        vendedor_id: '1'
+
+                    }),
+                    headers: {
+                    "Content-Type": "application/json",
+                    },
+                })
+                .then(res => res.json())
+                .then(info => {
+                    console.log(info)
+                })
+                .catch(error => {console.log(error)})
+           } 
+                
+        })
+
+
+        // fetch("http://localhost:3000/api/reportes/addClienteMercantilAndina", {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //         altas: datosCargaDB.altas,
+        //         //bajas: datosCargaDB.bajas,
+        //         //renovaciones: datosCargaDB.renovaciones,
+        //         //extencionesVigencia: datosCargaDB.extencionesVigencia,
+        //         // endososSinCosto: datosCargaDB.endososSinCosto,
+        //         // endososAmpliacion: datosCargaDB.endososAmpliacion,
+        //         // endososReduccion:datosCargaDB.endososReduccion,
+        //         }),
+        //         headers: {
+        //         "Content-Type": "application/json",
+        //         },
+        // })
+        // .then(res => res.json())
+        // .then(info => {
+        //     console.log(info)
+        // })
+        // .catch(error => {console.log(error)})           
     }
+
     return (
         <div className='reportAdd_container'>
             <h3>Carga de Reporte (Excel) MERCANTIL ANDINA</h3>
@@ -181,7 +240,7 @@ function ReportAdd() {
                                     <tr key={index1}>
                                         {
                                             state.propiedades.map((propiedad, index2) => {
-                                                return <td>{fila[propiedad]}</td>
+                                                return <td key={index2}>{fila[propiedad]}</td>
                                             })
                                         }
                                     </tr>
