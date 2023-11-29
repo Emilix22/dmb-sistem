@@ -1,0 +1,57 @@
+#estado {
+    border: solid 1px #002a7c;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.titulo {
+    padding: 10px;
+}
+
+.imgCompañias {
+    border: solid 1px #e3e3e3;
+    background-color: #fdfdfd;
+    padding: 5px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+#daños {
+    border: solid 1px #002a7c;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 10px;
+    width: 60%;
+    margin: 5px;
+}
+
+#inputs_conductor {
+    border: solid 1px #002a7c;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+#inputs_ldv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#inputs_ldvCadaUno {
+    border-radius: 8px;
+    background-color: #dfe9f5;
+}
+
+.links_fotos {
+    color: #002a7c;
+    border: solid 1px #6c85bd;
+    padding: 5px;
+    border-radius: 6px;
+    margin-top: 5px;
+}

@@ -104,7 +104,7 @@ function Login({ setUsuario }) {
                 <button className='btn-login' onClick={handleLogin}>Login</button>
             </div>
             {
-                conectando ? <div className='conectando'><span>Conectando...</span> <img src={isotipo} alt="logo-girando" /></div> : null
+                conectando && !errors ? <div className='conectando'><span>Conectando...</span> <img src={isotipo} alt="logo-girando" /></div> : null
             }
         </form>
         </div>

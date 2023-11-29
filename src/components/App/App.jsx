@@ -10,6 +10,9 @@ import SiniestrosTodosList from "../SiniestrosList/SiniestrosTodosList";
 import SiniestrosTipos from "../SiniestrosList/SiniestrosTipos";
 import ClientePersonaFicha from "../ClientesList/ClientePersonaFicha";
 import ClienteEmpresaFicha from "../ClientesList/ClienteEmpresaFicha";
+import SiniestroAutoFicha from "../SiniestrosList/SiniestroAutoFicha"
+import SiniestroAutoCambiaEstado from "../SiniestrosList/SiniestroAutoCambiaEstado"
+import SiniestroHogarFicha from "../SiniestrosList/SiniestroHogarFicha";
 import Login from "../Login/Login";
 import PolizasList from "../PolizasList/PolizasList";
 import ClientesTodosList from "../ClientesList/ClientesTodosList";
@@ -291,6 +294,17 @@ function App() {
 
                     <Route path="/polizas_todas_list" element={
                         usuario ? <PolizasList /> : <Login setUsuario={setUsuario} />
+                    } />
+
+                    <Route path={"/siniestro_auto_ficha/:id"} element={
+                        usuario ? <SiniestroAutoFicha />  : <Login setUsuario={setUsuario} />
+                    } />
+                    <Route path={"/siniestro_auto/cambia_estado/:id"} element={
+                        usuario ? <SiniestroAutoCambiaEstado />  : <Login setUsuario={setUsuario} />
+                    } />
+
+                    <Route path={"/siniestro_hogar_ficha/:id"} element={
+                        usuario ? <SiniestroHogarFicha />  : <Login setUsuario={setUsuario} />
                     } />
                         
                     <Route path="/siniestros_tipos" element={
