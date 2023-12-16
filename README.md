@@ -12,7 +12,7 @@ Este proyecto es una aplicación web que permite a los usuarios gestionar y admi
 
 ## Cómo usar
 
-- Ingrese a la siguiente versión demo **www.emilixweb.com
+- Ingrese a la siguiente versión demo **www.emilixweb.com**
 - Valídese como Usuario: 11111111 Contraseña: 12345678
 
 ## Contacto
