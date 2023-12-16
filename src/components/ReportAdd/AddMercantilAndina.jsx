@@ -123,8 +123,9 @@ function ReportAdd() {
             if (String(alta.DNI_CUIT).length === 8) {
 
                 const aseguradoSeparado = alta.ASEGURADO.split(' - ');
+                
 
-                fetch("http://localhost:3000/api/clientes/crear", {
+                fetch("https://dmb-back.online:3000/api/clientes/crear", {
                     
                     method: "POST",
                     body: JSON.stringify({
@@ -181,7 +182,7 @@ function ReportAdd() {
         // })
         // .catch(error => {console.log(error)})           
     }
-
+    
     return (
         <div className='reportAdd_container'>
             <h3>Carga de Reporte (Excel) MERCANTIL ANDINA</h3>

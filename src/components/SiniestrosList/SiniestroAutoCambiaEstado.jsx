@@ -7,6 +7,7 @@ function SiniestroAutoCambiaEstado() {
 
     const [estado, setEstado] = useState();
     const [observaciones, setObservaciones] = useState();
+    const [sinComp, setSinComp] = useState();
     
     const history = useNavigate();
 
@@ -19,6 +20,7 @@ function SiniestroAutoCambiaEstado() {
                 id: id,
                 estado: estado,
                 observaciones: observaciones,
+                sinComp: sinComp,
               }),
               headers: {
                 "Content-Type": "application/json",
@@ -54,6 +56,20 @@ function SiniestroAutoCambiaEstado() {
                             <option value="EN PROCESO">EN PROCESO</option>
                             <option value="FINALIZADO">FINALIZADO</option>
                         </select>
+                        {
+                            estado === "EN COMPAÑIA" 
+                            ? <div>
+                                <label htmlFor="sinComp">N° de Siniestro en compañía</label>
+                                <input
+                                    type="text"
+                                    name="sinComp"
+                                    id="sinComp"
+                                    value={sinComp}
+                                    onChange={(e) => setSinComp(e.target.value)}
+                                />
+                            </div>
+                            : null
+                        }
                     </div>
 
                     <div className="form-group-1 form-group-3">
@@ -68,6 +84,25 @@ function SiniestroAutoCambiaEstado() {
                         /> 
                     </div>    
                 </div>
+                <h4>Seguimiento del Siniestro</h4>
+                <button className='btn-buscar'>Actualizar Seguimiento</button>
+                <table 
+                    className="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellSpacing="0"
+                >
+                    <thead>
+                        <tr>
+                            <td>
+                                <strong>Fecha</strong>
+                            </td>
+                            <td>
+                                <strong>Seguimiento</strong>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
                 <div className='btn-excel'>
                     <button className='btn-buscar' onClick={guardarCambios}>Guardar Cambios</button>
                     <button className='btn-pdf' onClick={cancelar}>Cancelar</button>

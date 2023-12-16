@@ -68,7 +68,22 @@ function SiniestroAutoFicha() {
                             value={siniestro.data.estado}
                             disabled
                         />
-                        <Link to={`/siniestro_auto/cambia_estado/${siniestro.data.id_siniestro}`}><button className='btn-buscar'>Cambiar Estado / Observaciones</button></Link>
+                        {
+                            siniestro.data.estado === "EN COMPAÑIA" 
+                            ? <div>
+                                <label htmlFor="sinComp">N° de Siniestro en compañía</label>
+                                <input
+                                    type="text"
+                                    name="sinComp"
+                                    id="sinComp"
+                                    value={siniestro.data.sinComp}
+                                    disabled
+                                />
+                            </div>
+                            : null
+                        }
+                        
+                        <Link to={`/siniestro_auto/cambia_estado/${siniestro.data.id_siniestro}`}><button className='btn-buscar'>Actualizar / Seguimiento</button></Link>
                     </div>
 
                     <div className="form-group-1 form-group-3">
