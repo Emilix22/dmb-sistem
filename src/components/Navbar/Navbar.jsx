@@ -12,6 +12,11 @@ const Navbar = ({ usuario }) => {
                     <input type="text" placeholder='Buscar...' />
                     <SearchIcon />
                 </div> */}
+
+                <div className="text_info">
+                    <span>Esta es una VERSIÓN DEMO por lo que algunas funciones pueden estar deshabilitadas</span>
+                </div>
+
                 {
                     usuario 
                     ? <div className="items">

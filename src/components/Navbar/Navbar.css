@@ -12,8 +12,13 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: space-around;
     padding: 20px;
+}
+.text_info {
+    background-color: yellow;
+    font-weight: bold;
+    color: red;
 }
 
 .search {
