@@ -14,7 +14,7 @@ function SiniestroAutoCambiaEstado() {
     const guardarCambios = () => {
         
         const editSiniestro = async () => {
-            const response = await fetch("https://dmb-back.online:3000/api/siniestros_auto/editar", {
+            const response = await fetch("https://dmb-back.onrender.com/api/siniestros_auto/editar", {
               method: "PUT",
               body: JSON.stringify({
                 id: id,

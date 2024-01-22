@@ -20,7 +20,7 @@ function ClientesPersonaList() {
 
     useEffect(() => {
         const loadClients = async () => {
-            const response = await fetch("https://dmb-back.online:3000/api/clientes")
+            const response = await fetch("https://dmb-back.onrender.com/api/clientes")
 
             const info = await response.json();
             setClientesPersona(info.data);

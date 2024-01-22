@@ -8,7 +8,7 @@ function ClientesAdd() {
 
     useEffect(() => {
         const loadMetodoPago = async () => {
-            const response = await fetch("https://dmb-back.online:3000/api/metodosPago")
+            const response = await fetch("https://dmb-back.onrender.com/api/metodosPago")
 
             const info = await response.json();
             setMetodoPago(info);

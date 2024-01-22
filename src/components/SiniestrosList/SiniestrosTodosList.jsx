@@ -20,7 +20,7 @@ function SiniestrosTodosList() {
   useEffect(() => {
 
       const loadSiniestrosAuto = async () => {
-          const response = await fetch("https://dmb-back.online:3000/api/siniestros_auto")
+          const response = await fetch("https://dmb-back.onrender.com/api/siniestros_auto")
 
           const info = await response.json();
           setSiniestrosAuto(info);
@@ -31,7 +31,7 @@ function SiniestrosTodosList() {
   useEffect(() => {
 
       const loadSiniestrosMoto = async () => {
-          const response = await fetch("https://dmb-back.online:3000/api/siniestros_moto")
+          const response = await fetch("https://dmb-back.onrender.com/api/siniestros_moto")
 
           const info = await response.json();
           setSiniestrosMoto(info);
@@ -42,7 +42,7 @@ function SiniestrosTodosList() {
   useEffect(() => {
 
       const loadSiniestrosHogar = async () => {
-          const response = await fetch("https://dmb-back.online:3000/api/siniestros_hogar")
+          const response = await fetch("https://dmb-back.onrender.com/api/siniestros_hogar")
 
           const info = await response.json();
           setSiniestrosHogar(info);
@@ -53,7 +53,7 @@ function SiniestrosTodosList() {
   useEffect(() => {
 
       const loadSiniestrosConsorcio = async () => {
-          const response = await fetch("https://dmb-back.online:3000/api/siniestros_consorcio")
+          const response = await fetch("https://dmb-back.onrender.com/api/siniestros_consorcio")
 
           const info = await response.json();
           setSiniestrosConsorcio(info);
@@ -64,7 +64,7 @@ function SiniestrosTodosList() {
   useEffect(() => {
 
       const loadSiniestrosOtro = async () => {
-          const response = await fetch("https://dmb-back.online:3000/api/siniestros_otro")
+          const response = await fetch("https://dmb-back.onrender.com/api/siniestros_otro")
 
           const info = await response.json();
           setSiniestrosOtro(info);

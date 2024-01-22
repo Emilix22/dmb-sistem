@@ -17,7 +17,7 @@ function ClientesTodosList() {
     useEffect(() => {
 
         const loadClients = async () => {
-            const response = await fetch("https://dmb-back.online:3000/api/clientes")
+            const response = await fetch("https://dmb-back.onrender.com/api/clientes")
 
             const info = await response.json();
             setClientesPersonas(info);
@@ -28,7 +28,7 @@ function ClientesTodosList() {
     useEffect(() => {
 
         const loadClientsEmpresas = async () => {
-            const response = await fetch("https://dmb-back.online:3000/api/clientes/empresas")
+            const response = await fetch("https://dmb-back.onrender.com/api/clientes/empresas")
 
             const info = await response.json();
             setClientesEmpresas(info);

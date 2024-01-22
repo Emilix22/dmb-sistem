@@ -125,7 +125,7 @@ function ReportAdd() {
                 const aseguradoSeparado = alta.ASEGURADO.split(' - ');
                 
 
-                fetch("https://dmb-back.online:3000/api/clientes/crear", {
+                fetch("https://dmb-back.onrender.com/api/clientes/crear", {
                     
                     method: "POST",
                     body: JSON.stringify({

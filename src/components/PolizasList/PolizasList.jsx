@@ -23,7 +23,7 @@ function PolizasList() {
     useEffect(() => {
 
         const loadPolizas = async () => {
-            const response = await fetch("https://dmb-back.online:3000/api/polizas")
+            const response = await fetch("https://dmb-back.onrender.com/api/polizas")
 
             const info = await response.json();
             setPolizas(info);

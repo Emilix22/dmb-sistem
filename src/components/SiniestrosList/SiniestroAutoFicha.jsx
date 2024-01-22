@@ -20,7 +20,7 @@ function SiniestroAutoFicha() {
 
     useEffect(() => {
         const loadSiniestro = async () => {
-          const response = await fetch("https://dmb-back.online:3000/api/siniestros_auto/id", {
+          const response = await fetch("https://dmb-back.onrender.com/api/siniestros_auto/id", {
             method: "POST",
             body: JSON.stringify({
               id: id,
@@ -176,7 +176,7 @@ function SiniestroAutoFicha() {
                     </div>
                     {
                         siniestro.data.motivo === "robo" ?
-                        <Link className= "links_fotos" to={`https://dmb-back.online:3000/img/Siniestros_auto/${siniestro.data.denuncia_policial}`} target="_blank">
+                        <Link className= "links_fotos" to={`https://dmb-back.onrender.com/img/Siniestros_auto/${siniestro.data.denuncia_policial}`} target="_blank">
                             Ver Denuncia Policial
                         </Link>
                         : null
@@ -282,7 +282,7 @@ function SiniestroAutoFicha() {
                                 <span>Trasera izquierda</span>
                                 : null
                             }
-                            <Link className= "links_fotos" to={`https://dmb-back.online:3000/img/Siniestros_auto/${siniestro.data.img_rueda}`} target="_blank">
+                            <Link className= "links_fotos" to={`https://dmb-back.onrender.com/img/Siniestros_auto/${siniestro.data.img_rueda}`} target="_blank">
                                 Ver Foto de Rueda
                             </Link>
                         </div>
@@ -405,10 +405,10 @@ function SiniestroAutoFicha() {
                         : null
                     }
                     <div className='inputs' id='inputs_ldv'>                
-                        <Link className= "links_fotos" to={`https://dmb-back.online:3000/img/Siniestros_auto/${siniestro.data.registro_frente}`} target="_blank">
+                        <Link className= "links_fotos" to={`https://dmb-back.onrender.com/img/Siniestros_auto/${siniestro.data.registro_frente}`} target="_blank">
                             Ver foto Registro (frente)
                         </Link>
-                        <Link className= "links_fotos" to={`https://dmb-back.online:3000/img/Siniestros_auto/${siniestro.data.registro_dorso}`} target="_blank">
+                        <Link className= "links_fotos" to={`https://dmb-back.onrender.com/img/Siniestros_auto/${siniestro.data.registro_dorso}`} target="_blank">
                             Ver foto Registro (dorso)
                         </Link>
                     </div>

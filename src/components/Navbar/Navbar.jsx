@@ -33,7 +33,7 @@ const Navbar = ({ usuario }) => {
                         <span>{usuario.nombre+" "+usuario.apellido}</span>
                     </div>
                     <div className="item">
-                        <img className="avatar" src={`https://dmb-back.online:3000/img/usuarios/${usuario.imagen}`} alt="avatar" />
+                        <img className="avatar" src={`https://dmb-back.onrender.com/img/usuarios/${usuario.imagen}`} alt="avatar" />
                     </div>
                 </div> : null
                 }

@@ -11,7 +11,7 @@ function ClienteEmpresaFicha() {
 
   useEffect(() => {
     const loadClient = async () => {
-      const response = await fetch("https://dmb-back.online:3000/api/clientes/empresa_id", {
+      const response = await fetch("https://dmb-back.onrender.com/api/clientes/empresa_id", {
         method: "POST",
         body: JSON.stringify({
           empresa_id: id,
@@ -28,7 +28,7 @@ function ClienteEmpresaFicha() {
 
   useEffect(() => {
     const loadPolizas = async () => {
-      const response = await fetch("https://dmb-back.online:3000/api/polizas/porEmpresa", {
+      const response = await fetch("https://dmb-back.onrender.com/api/polizas/porEmpresa", {
         method: "POST",
         body: JSON.stringify({
           id: id,
