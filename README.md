@@ -10,11 +10,6 @@ Este proyecto es una aplicación web que permite a los usuarios gestionar y admi
 - Gestionar los datos de las ventas de la empresa.
 - Generar informes y estadísticas sobre los datos de la empresa.
 
-## Cómo usar
-
-- Visita la versión demo **https://gestion-pnpq.onrender.com/**
-- Valídese como Usuario: 11111111 / Pass: 12345678
-
 ## Contacto
 
 Si tienes alguna pregunta o comentario sobre este proyecto, no dudes en contactarme a través de mi perfil de GitHub o en **www.emilixweb.com**.
